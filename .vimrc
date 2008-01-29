@@ -213,7 +213,7 @@ imap <C-W><End> <C-O>100<C-W><Right>
   "-del
     map <Del> i<Del>
   "-tab
-    map <Tab> >>
+    map <Tab> i<Tab>
     vmap <Tab> >
     map <S-Tab> <<
     vmap <S-Tab> <
