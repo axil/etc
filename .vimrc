@@ -93,6 +93,10 @@ elseif $COMPUTERNAME=='COMPUTERNAME'
     set lines=43
     set columns=125
     set guifont=courier_new:h10:cRUSSIAN
+elseif $COMPUTERNAME=='L15-LEV'
+    set lines=54
+    set columns=157
+    set guifont=courier_new:h10:cRUSSIAN
 else
     set lines=49
     set columns=126
