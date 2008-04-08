@@ -111,6 +111,7 @@ set encoding=utf-8
 map <F12> :e #<CR>
 set fileformat=unix
 set isfname-=:          "for gF
+set ffs=unix,dos
 
 if v:version>=700
     unmap 
@@ -195,13 +196,13 @@ imap <C-W><End> <C-O>100<C-W><Right>
     imap <F3> <C-O>:Sexplore D:\<CR>
   " -resize
     map <F5> <C-W>_<C-W>\|
-    imap <F5> <C-O><C-W>_<C-O><C-W>\|
+    imap <F5> <C-O><C-W>_<C-O><C-W>\|<C-O>zz
     map <F6> <C-W>w
     imap <F6> <C-O><C-W>w
   " -next & previous window
     map <F7> :Next<CR>
     map! <F7> <C-O>:Next<CR>
-    map <F8> :next
+    map <F8> :next<CR>
     map! <F8> <C-O>:next<CR>
   " -change window in insert mode
     imap <C-W> <C-O><C-W>
@@ -243,6 +244,8 @@ imap <C-W><End> <C-O>100<C-W><Right>
 "    imap Oa
 "    map Ob
 "    imap Ob
+    map <C-Up> <C-W><Up>
+    map <C-Down> <C-W><Down>
 
 
 " Select/Copy/paste
@@ -303,25 +306,30 @@ imap <C-W><End> <C-O>100<C-W><Right>
     cmap <C-A> <Home>
 
 " tabs
-    map à 1gt
-    map ± 2gt
-    map ² 3gt
-    map ³ 4gt
-    map ´ 5gt
-    map µ 6gt
-    imap à <C-O>1gt
-    imap ± <C-O>2gt
-    imap ² <C-O>3gt
-    imap ³ <C-O>4gt
-    imap ´ <C-O>5gt
-    imap µ <C-O>6gt
+"    map à 1gt
+    map ± 1gt
+    map ² 2gt
+    map ³ 3gt
+    map ´ 4gt
+    map µ 5gt
+"    imap à <C-O>1gt
+    imap ± <C-O>1gt
+    imap ² <C-O>2gt
+    imap ³ <C-O>3gt
+    imap ´ <C-O>4gt
+    imap µ <C-O>5gt
 " Alt-= to create the tabs
-    map ½ :tabnew<CR>:tabmove 0<CR>2gt:tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>2gt
+    map ½ :tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>1gt
 
     map <M-C-PageUp> gT
     imap <M-C-PageUp> <C-O>gT
     map <M-C-PageDown> gt
     imap <M-C-PageDown> <C-O>gt
+
+    if $OS=='Windows_NT'
+        vmap ô "zdi{% trans "" %}<Esc>3<Left>"zp
+        vmap â "zdi{% blocktrans %}{% endblocktrans %}<Esc>2b3hp
+    endif
 
 "_______________end of mappings_________________
 
@@ -332,7 +340,7 @@ imap <C-W><End> <C-O>100<C-W><Right>
 "Terminal settings special for 'win32'
 
 " Checking term variable
-"let s:register_a  = @a
+"let s:r#r_a  = @a
 "redir @a
 "echo &term
 "redir END
@@ -432,6 +440,9 @@ endif
     hi DiffChange guifg=white
     hi DiffText guifg=white
     hi Folded guibg=black
+    hi PreProc guifg=lightblue 
+    hi Underlined guifg=lightblue gui=underline 
+
 
 "____________end of terminal settings___________
 
