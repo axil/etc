@@ -48,8 +48,8 @@ set viminfo='5			"marks in max 5 files are remembered in ~/.viminfo,
 set viminfo+=%			"save/restore bufferlist
 set tags=./tags,tags		"for C-% and C-T
 set selection=exclusive		"last character is excluded
-set backspace=2 		"allow backspacing over all indents
-set ruler			
+set backspace=2		        "allow backspacing over all indents
+set ruler
 set showcmd			"shows incomplete command in statusline
   "-windows
 set winminheight=0
@@ -60,11 +60,11 @@ set incsearch			"interactive search
 set gdefault			"several matches in a line
 set ignorecase			"smartcase is suboption of ignorecase
 set smartcase			"for ?,/,n,N,:g,:s, not for *,#,gd,tagsearch,etc.
-set iskeyword=a-z,A-Z,48-57,_   "for gd
+set iskeyword=a-z,A-Z,48-57,_,А-я,Ј,і   "for gd
 set ww=<,>,[,]			"when cursor is at the end-of-line
 set nohlsearch
   "-x-coord format
-set formatoptions=tcq
+set formatoptions=tcq		"only for new files, see "au" section below
 set textwidth=0
 set autoindent
 set smarttab
@@ -76,7 +76,7 @@ set autowrite
   "-make
 "set makeprg=make
 set makeprg=compile1.sh
-set path+=..,../include 	
+set path+=..,../include,templates
   "-folds / Vim6.0 special /
 "set foldmethod=manual
 "set foldnestmax=1
@@ -327,9 +327,17 @@ imap <C-W><End> <C-O>100<C-W><Right>
     imap <M-C-PageDown> <C-O>gt
 
     if $OS=='Windows_NT'
+        map <C-Right> w
+        map <C-Left> b
         vmap ô "zdi{% trans "" %}<Esc>3<Left>"zp
         vmap â "zdi{% blocktrans %}{% endblocktrans %}<Esc>2b3hp
+    else
+        map [C w
+        imap [C <C-Right>
+        map [D b
+        imap [D <C-Left>
     endif
+    
 
 "_______________end of mappings_________________
 
@@ -502,8 +510,6 @@ endfunction
 
 "unmap <C-I>
 
-set path+=templates,contrib/templates
-
 "http://www.vim.org/tips/tip.php?tip_id=1228
 inoremap <expr> <Esc>      pumvisible()?"\<C-E>":"\<Esc>"
 inoremap <expr> <CR>       pumvisible()?"\<C-Y>":"\<CR>"
@@ -516,5 +522,5 @@ highlight   Pmenu               term=NONE cterm=NONE ctermfg=7 ctermbg=5 gui=NON
 highlight   PmenuSel            term=NONE cterm=NONE ctermfg=0 ctermbg=7 gui=NONE guifg=Black guibg=White 
 highlight   PmenuSbar           term=NONE cterm=NONE ctermfg=7 ctermbg=0 gui=NONE guifg=White guibg=Black 
 highlight   PmenuThumb          term=NONE cterm=NONE ctermfg=0 ctermbg=7 gui=NONE guifg=Black guibg=White
-    
+
 
