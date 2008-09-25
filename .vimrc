@@ -60,7 +60,7 @@ set incsearch			"interactive search
 set gdefault			"several matches in a line
 set ignorecase			"smartcase is suboption of ignorecase
 set smartcase			"for ?,/,n,N,:g,:s, not for *,#,gd,tagsearch,etc.
-set iskeyword=a-z,A-Z,48-57,_,А-я,Ј,і   "for gd
+set iskeyword=a-z,A-Z,48-57,_   "for gd
 set ww=<,>,[,]			"when cursor is at the end-of-line
 set nohlsearch
   "-x-coord format
@@ -218,7 +218,7 @@ imap <C-W><End> <C-O>100<C-W><Right>
   "-del
     map <Del> i<Del>
   "-tab
-    map <Tab> i<Tab>
+"    map <Tab> i<Tab>   "used for jumplist navigation
     vmap <Tab> >
     map <S-Tab> <<
     vmap <S-Tab> <
@@ -511,7 +511,8 @@ endfunction
 "unmap <C-I>
 
 "http://www.vim.org/tips/tip.php?tip_id=1228
-inoremap <expr> <Esc>      pumvisible()?"\<C-E>":"\<Esc>"
+"inoremap <expr> <Esc>      pumvisible()?"\<C-E>":"\<Esc>"
+inoremap <expr> <Esc>      pumvisible()?"\<C-E>":MyEsc()
 inoremap <expr> <CR>       pumvisible()?"\<C-Y>":"\<CR>"
 inoremap <expr> <Down>     pumvisible()?"\<C-N>":"\<Down>"
 inoremap <expr> <Up>       pumvisible()?"\<C-P>":"\<Up>"
