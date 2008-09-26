@@ -371,8 +371,7 @@ else
 
 endif
 "http://www.vim.org/tips/tip.php?tip_id=1228
-"inoremap <expr> <Esc>      pumvisible()?"\<C-E>":"\<Esc>"
-inoremap <expr> <Esc>      pumvisible()?"\<C-E>":MyEsc()
+inoremap <expr> <Esc>      pumvisible()?"\<C-E>":"\<Esc>"
 inoremap <expr> <CR>       pumvisible()?"\<C-Y>":"\<CR>"
 inoremap <expr> <Down>     pumvisible()?"\<C-N>":"\<Down>"
 inoremap <expr> <Up>       pumvisible()?"\<C-P>":"\<Up>"
