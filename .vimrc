@@ -30,6 +30,7 @@ set textwidth=0
 "set autoindent			"not good enough!
 set cindent
 set smarttab
+set noexpandtab			"pep8
 set shiftwidth=4
 set shiftround			"shifting blocks
   "-read/write
