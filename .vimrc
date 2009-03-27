@@ -62,6 +62,7 @@ set foldmethod=marker
 cmap <C-a> <Home>
 set visualbell
 set diffopt+=vertical
+set nrformats=
 
 "                     *  *  *
 
