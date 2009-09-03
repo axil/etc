@@ -31,7 +31,7 @@ set textwidth=0
 "set autoindent			"not good enough!
 set cindent
 set smarttab
-set noexpandtab			"pep8
+set expandtab			"pep8
 set shiftwidth=4
 set shiftround			"shifting blocks
   "-read/write
@@ -78,6 +78,8 @@ au BufEnter *.h,*.cc,*.pl set formatoptions-=r
 "au BufEnter *.cc,*.cpp map [31~ :make && %<<CR>
 "au BufEnter *.cc,*.cpp imap [31~ <C-O>:make && %<<CR>
 au BufWinEnter normal '"
+au BufEnter *.css set noexpandtab
+au BufEnter *.html set tabstop=4
 
 "                    *  *  *
 
