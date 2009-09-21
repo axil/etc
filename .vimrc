@@ -262,6 +262,9 @@ ounmap xx
 
     vmap t "zdi{% trans "" %}<Esc>3<Left>"zp
     vmap b "zdi{% blocktrans %}{% endblocktrans %}<Esc>2b3hp
+  "-wordwise movement
+    map OD <S-Left>
+    map OC <S-Right>
   
 "                   *  *  *
 "_______________Teraterm_special_______________

@@ -1,0 +1,8 @@
+#commands
+\e[I back-screen
+\e[G forw-screen
+#line-edit
+\b backspace
+^? delete
+#env
+LESS=-ig

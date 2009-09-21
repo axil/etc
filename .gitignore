@@ -1,3 +1,1 @@
-*
-!/.vimrc
-!/.gitignore
+*.pyc
