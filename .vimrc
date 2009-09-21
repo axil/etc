@@ -61,7 +61,6 @@ set foldmethod=marker
 "map gf :sp<CR>:find <cfile><CR>
 cmap <C-a> <Home>
 set visualbell
-set diffopt+=vertical
 set nrformats=
 
 "                     *  *  *
@@ -324,6 +323,7 @@ ounmap xx
 
 " Correct <Enter> behaviour at line start
 if v:version>=700
+    set diffopt+=vertical
     set virtualedit=onemore         " to let cursor go one char after linebreak, 7.0 
     inoremap <expr> <Esc> MyEsc()
     func! MyEsc()
