@@ -1,0 +1,21 @@
+startup_message off
+vbell off
+bindkey "\033`" select 0
+#bindkey "\033\033[11~" select 1
+bindkey "\0331" select 1
+bindkey "\0332" select 2
+bindkey "\0333" select 3
+bindkey "\0334" select 4
+bindkey "\0335" select 5
+bindkey "\0336" select 6
+bindkey "\0337" select 7
+bindkey "\0338" select 8
+bindkey "\0339" select 9
+escape "^_-"
+screen -h 100 5
+screen 4
+screen 3
+screen 2
+screen 1
+screen 0
+termcapinfo xterm* ti@:te@
