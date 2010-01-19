@@ -62,6 +62,7 @@ set foldmethod=marker
 cmap <C-a> <Home>
 set visualbell
 set nrformats=
+set tabstop=8
 
 "                     *  *  *
 
