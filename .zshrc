@@ -1,7 +1,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-TERM=linux
+TERM=xterm
  
 setopt interactivecomments
 setopt globdots

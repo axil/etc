@@ -263,8 +263,11 @@ ounmap xx
     vmap t "zdi{% trans "" %}<Esc>3<Left>"zp
     vmap b "zdi{% blocktrans %}{% endblocktrans %}<Esc>2b3hp
   "-wordwise movement
-    map OD <S-Left>
-    map OC <S-Right>
+    map [D <S-Left>
+    map [C <S-Right>
+  "-pyflakes
+    map [s :!pyflakes %<CR>
+    imap [s <C-O>:!pyflakes %<CR>
   
 "                   *  *  *
 "_______________Teraterm_special_______________
