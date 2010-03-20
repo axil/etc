@@ -1,0 +1,262 @@
+  "-folds / Vim6.0 special /
+set foldmethod=manual
+set foldnestmax=1
+set foldnestmax=10
+set foldlevel=1
+
+if (asdf=qwer or (asdf=zxcv
+    
+  "-dictionary
+"set dict="/usr/share/dict/words"
+"    
+  "-window chars
+function! MyFoldText()
+  return getline(v:foldstart)." <...>"
+endfunction
+set fillchars="fold: "
+set foldmarker=#if,#endif
+set foldtext=MyFoldText()
+set foldmethod=marker
+
+"map gf :sp<CR>:find <cfile><CR>
+"map <F12> :up<CR>:n<CR>g&
+"  
+  "some trouble with escaped keys
+"    map +K <Left>
+"    map! +K <Left>
+"    map +M <Right>
+"    map! +M <Right>
+"    map +H <Up>
+"    map! +H <Up>
+"    map +P <Down>
+"    map! +P <Down>
+"    map <C-W>+H <C-W><Up>
+"    map <C-W>+P <C-W><Down>
+"    map <C-W>+K <C-W><Left>
+"    map <C-W>+M <C-W><Right>
+    
+"    map +R <Insert>
+"    map! +R <Insert>
+"    map +S <Delete>
+"    map! +S <Delete>
+"    map +G <Home>
+"    map! +G <Home>
+"    map +O <End>
+"    map! +O <End>
+"    map +I <PageUp>
+"    map! +I <PageUp>
+"    map +Q <PageDown>
+"    map! +Q <PageDown>
+
+"    map +; <F1>
+"    map! +; <F1>
+"    map +< <F2>
+"    map! +< <F2>
+"    map += <F3>
+"    map! += <F3>
+"    map +> <F4>
+"    map! +> <F4>
+"    map +? <F5>
+"    map! +? <F5>
+"    map +@ <F6>
+"    map! +@ <F6>
+"    map +A <F7>
+"    map! +A <F7>
+"    map +B <F8>
+"    map! +B <F8>
+"    map +C <F9>
+"    map! +C <F9>
+"    map +D <F10>
+"    map! +D <F10>
+"    map +Е <F11>
+"    map! +Е <F11>
+"    map +Ж <F12>
+"    map! +Ж <F12>
+
+"Terminal settings special for 'win32'
+
+" Checking term variable
+"let s:r#r_a  = @a
+"redir @a
+"echo &term
+"redir END
+"put a
+
+"unmap <C-I>
+
+"    vmap <PageUp> <C-B>
+"    vmap <PageDown> <C-D>
+"    
+    func! MyiCR()                    " cancel autoindenting
+    let pos=virtcol('.')             " when pressing CR in the beginning of the line
+    let ind=indent(line('.'))
+    if pos<=ind+1 && ind!=0
+        let str=''
+        if pos!=1
+            let str=str.'l'
+        endif
+        let str=str.'y0kopj'
+        if pos!=1
+            let str=str.'l'
+        endif
+        return str.'i'
+    endif
+    return ''
+    endfunc
+  
+  "-visual comments
+vmap \# :!awk '{print "\#" $0}'<CR>
+vmap \" :!awk '{print "\"" $0}'<CR>
+vmap \/ :!awk '{print "//" $0}'<CR>
+vmap \|1 :!awk '{print substr($0,2)}'<CR>
+vmap \|2 :!awk '{print substr($0,3)}'<CR>
+
+"                   *  *  *
+"_______________Teraterm_special_______________
+  "-Ctrl-Arrows
+"    map [25~ <C-Left>
+"    map! [25~ <C-Left>
+"    map [26~ <C-Right>
+"    map! [26~ <C-Right>
+"    map [32~ <C-Y>
+"    map! [32~ <C-O><C-Y> 
+"    map [33~ <C-E>
+"    map! [33~ <C-O><C-E>
+  "-Ctrl-Del
+"    map [28~ dwi
+"    imap [28~ <C-O>dw
+  "-Ctrl-BS
+"    map [29~ i<C-W>
+"    imap [29~ <C-W>
+  "-Ctrl-F9
+"    map [31~ :make && %<<CR>
+"    imap [31~ <C-O>:make && %<<CR>
+"    map <F9> :!./% 1.txt<CR>
+"    imap <F9> <C-O>:!./% 1.txt<CR>
+
+"General movement:
+  "-begin/end of file
+"    map [5^ gg
+"    map! [5^ <C-O>gg
+"    map [6^ G
+"    map! [6^ <C-O>G
+  "-shift+arrows
+"    map [d <S-Left>
+"    map! [d <S-Left>
+"    map [c <S-Right>
+"    map! [c <S-Right>
+  "-ctrl+arrows
+"    map [25~ <S-Left>
+"    map! [25~ <S-Left>
+"    map [26~ <S-Right>
+"    map! [26~ <S-Right>
+  "-two window movement
+"    map Oa <C-Y><F6><C-Y><F6>
+"    imap Oa <C-O><C-Y><F6><C-O><C-Y><F6>
+"    map Ob <C-E><F6><C-E><F6>
+"    imap Ob <C-O><C-E><F6><C-O><C-E><F6>
+  "-insert+visual 
+    "imap [c <C-O>v
+    "imap [d <C-O>v
+  "-dos-style line-killing
+ "   imap <C-Y> <C-O>dd
+  "-emacs-style <C-K>
+  "  map <C-K> d$
+  "  imap <C-K> <C-O><C-K><Left>
+  "-select all
+  "  map <C-A> ggVG
+  "  map! <C-A> <C-O>gg<C-O>VG
+
+"-termcap codes, putty mode 1 ("ESC[n~")
+  set t_kI=[2~ 
+  set t_kD=[3~ 
+  set t_kh=[1~ 
+  set t_@7=[4~ 
+  set t_kP=[5~  
+  set t_kN=[6~ 
+  set t_kb=
+  
+  "-shift+arrows
+"    map [d
+"    map! [d
+"    map [c
+"    map! [c
+  "-ctrl+arrows
+"    map Od
+"    map! Od
+"    map Oc
+"    map! Oc
+  "-two window movement
+"    map Oa
+"    imap Oa
+"    map Ob
+"    imap Ob
+"  
+  "-macros execution
+    "map ; @q
+  "-tab
+"    map <Tab> ==
+  "-make
+"    map  :!./%
+"    imap  :!./%
+"    map  :make
+"    imap  :make
+"    map  :!g++ -lpthread %
+"    imap  :!g++ -lpthread %
+"    map [20^ :!g++ -lpthread % && a.out
+"    map! [20^ :!g++ -lpthread % && a.out
+  "-S-Del
+"   Оimap <C-Del> <C-O>cw
+  "-format line  
+    map Q ggvG=
+"    imap Q <C-O>gg<C-O>vG=
+   "-Del in visual mode
+vmap <Del> di
+  "-tab
+map <Tab> ==
+" Select/Copy/paste
+  "-insert+visual
+    "imap [c v
+    "imap [d v
+    "map!   p
+  "-for correct mouse-pasting
+    map <F4> :set invautoindent<CR>
+    imap <F4> <C-O><F4>
+  "-select all
+  "  map  ggVG
+  "  map!  ggVG
+" Misc :
+  "-control-G
+"    map!  :set invruler
+  "-dos-style line-killing
+ "   imap  dd
+  "-make
+map <F7> :make<CR>
+imap <F7> <C-O><F7>
+  "-macros execution
+"    map ; @q
+  "-control-G
+map! <C-G> <C-O>:set invruler<CR>
+  "- Ctrl-*
+"  map [34~ :set invlist<CR>
+"  map! [34~ <C-O>:set invlist<CR>
+
+"map <F9> :!csc /target:winexe % && %<.exe<CR>
+"map <F9> :!csc /target:exe % && %<.exe<CR>
+"map <F9> :!perl %<CR>
+"imap <F9> <C-O>:!perl %<CR>
+"map <F9> :!gawk -f%<CR>
+"imap <F9> <C-O>:!gawk -f%<CR>
+
+"au BufEnter *.icc so /usr/share/vim/vim57/syntax/cpp.vim
+"au BufEnter *.h so /usr/share/vim/vim57/syntax/cpp.vim
+
+"au BufEnter *.h so $VIM/vim62/syntax/cpp.vim
+
+"au BufEnter *.pl map [31~ :!%<CR>
+"au BufEnter *.pl map! [31~ <C-O>:!%<CR>
+"map [31~ :!%<CR>
+"map! [31~ <C-O>:!%<CR>
+"au BufEnter *.cc,*.cpp map [31~ :make && %<<CR>
+"au BufEnter *.cc,*.cpp imap [31~ <C-O>:make && %<<CR>
+
