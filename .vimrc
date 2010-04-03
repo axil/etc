@@ -353,6 +353,9 @@ else
   "-wordwise movement
     map [D <S-Left>
     map [C <S-Right>
+  "-missing escape-sequences
+    map [A <C-Up>
+    map [B <C-Down>
 endif
 
 " _____- neutralizing some new "features" in v7.0______
