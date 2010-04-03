@@ -236,9 +236,15 @@ endif
     map Q <Nop>
   "-disable save and exit
     map ZZ <Nop>
-  "-commenting/uncommenting    
-    vmap . :s/^/#/<CR>
-    vmap , :s/^#//<CR>
+  "-commenting/uncommenting
+    function! Mycomment()
+        let l:t=@/
+        '<,'>s/^/#/
+        let @/=l:t
+        echo
+    endfunction
+    vmap . :<C-U>let @9=@/<Bar>'<,'>s/^/#/<Bar>let @/=@9<Bar>echo<CR>
+    vmap , :<C-U>let @9=@/<Bar>'<,'>s/^#//<Bar>let @/=@9<Bar>echo<CR>
   "-tab
 "    map <C-P> <C-I>
 "    map <Tab> i<Tab>
