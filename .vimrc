@@ -77,7 +77,7 @@ if $OS=='Windows_NT'
     set keymodel=startsel           "no stopsel, bug with pageup in visual mode
     set selection=exclusive
 
-    let $HOME=$VIM
+"    let $HOME=$VIM
     winpos 0 0
     if $COMPUTERNAME=='NAME'
         set lines=54
