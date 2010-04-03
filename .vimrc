@@ -246,8 +246,8 @@ endif
     vmap . :<C-U>let @9=@/<Bar>'<,'>s/^/#/<Bar>let @/=@9<Bar>echo<CR>
     vmap , :<C-U>let @9=@/<Bar>'<,'>s/^#//<Bar>let @/=@9<Bar>echo<CR>
   "-tab
-"    map <C-P> <C-I>
-"    map <Tab> i<Tab>
+    noremap <C-P> <C-I>
+    noremap <Tab> i<Tab>
     vmap <Tab> >
     map <S-Tab> <<
     vmap <S-Tab> <
