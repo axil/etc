@@ -433,6 +433,9 @@ if $OS=='Windows_NT'
     "-trans
     au BufEnter *.html vmap ô "zdi{% trans "" %}<Esc>4<Left>"zp
     au BufEnter *.html vmap â "zdi{% blocktrans %}{% endblocktrans %}<Esc>2b3hp
+    "-pyflakes
+    au BufEnter *.py map <S-F9> :!start D:/Utilities/Development/Python/python.exe %:gs?\\?/? <CR>
+    au BufEnter *.py map <C-F9> :!start D:/Utilities/Development/Python26/egg/Scripts/pyflakes.bat %:gs?\\?/?<CR>
 else
     "-trans
     au BufEnter *.html vmap t "zdi{% trans "" %}<Esc>3<Left>"zp
@@ -446,7 +449,6 @@ endif
 if $OS=='Windows_NT'
     " -run
     au BufEnter *.py map <F9> :!D:/Utilities/Development/Python/python.exe %:gs?\\?/? <CR>
-    au BufEnter *.py map <S-F9> :!start D:/Utilities/Development/Python/python.exe %:gs?\\?/? <CR>
     au BufEnter {*.vim,_vimrc} nnoremap <F9> :source % \| set noreadonly<CR>
     au BufEnter {*.py,*.vim,_vimrc} imap <F9> <C-O><F9>
     au BufEnter {*.css} set noexpandtab
