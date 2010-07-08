@@ -208,7 +208,9 @@ endif
     map <C-W>. <C-W><
   " -windows movement accelerators
     map <C-Up> <C-W><Up>
+    imap <C-Up> <C-O><C-W><Up>
     map <C-Down> <C-W><Down>
+    imap <C-Down> <C-O><C-W><Down>
     nnoremap <C-W><Home> 100<C-W><Left>
     imap <C-W><Home> <C-O><C-W><Home>
     nnoremap <C-W><End> 100<C-W><Right>
@@ -361,7 +363,9 @@ else
     map [C <S-Right>
   "-missing escape-sequences
     map [A <C-Up>
+    imap [A <C-Up>
     map [B <C-Down>
+    imap [B <C-Down>
 endif
 
 " _____- neutralizing some new "features" in v7.0______
