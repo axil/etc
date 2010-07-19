@@ -21,8 +21,8 @@ if [ -n "$SSH_TTY" ]; then
     export PFS='/projects/pybb/stable'
     
     export VD='/var/django'
-    export VDDS='/var/django/django-svn-lev/'
-    export VDNA='/var/django/django-newforms-admin/'
+    export VDDS='/var/django/django-stable/'
+    export VDDT='/var/django/django-trunk/'
     
     export VDPT='/var/django/phones-test'
     export VDPTT='/var/django/phones-tests'
