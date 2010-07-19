@@ -478,8 +478,8 @@ else
 
     "-<F9>
     au BufEnter *.cc,*.cpp map [U :!g++ -o%< % && ./%<<CR>
-    au BufEnter *.py,*.pl map [U :!./%<CR>
-    au BufEnter *.py,*.pl imap [U <C-O>:!./%<CR>
+    au BufEnter *.py,*.pl map [U :!python %<CR>
+    au BufEnter *.py,*.pl imap [U <C-O>:!python %<CR>
 endif
 augroup end    
 
