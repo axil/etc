@@ -262,15 +262,15 @@ endif
     map! <F10> <C-O><F10>
     map x ZQ
     map! x <C-O>ZQ
-" Command mode fixes:
+  "-Command mode fixes:
     cmap <C-a> <Home>
-
   "-x key
-map x "_d
-ounmap x
-map xx "_dd
-ounmap xx
-
+    map x "_d
+    ounmap x
+    map xx "_dd
+    ounmap xx
+  "- join lines
+    imap <C-J> <C-O>J
 
 " _____________Mappings: symmetric differences_____________
 if $OS=='Windows_NT'
