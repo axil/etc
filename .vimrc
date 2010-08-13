@@ -462,7 +462,7 @@ if $OS=='Windows_NT'
     au BufEnter *.h nnoremap <F6> :e %<.cpp<CR>
 
     " -tabstop
-    au BufEnter {*.cpp,*.c} set tabstop=4
+"    au BufEnter {*.cpp,*.c} set tabstop=4
     au BufEnter *.py set tabstop=8
 
     au BufEnter *.asmx so D:\Utilities\Editors\Vim\vim60\syntax\cs.vim
@@ -471,7 +471,7 @@ else
     au BufEnter *.h,*.cc,*.pl set formatoptions-=r
     au BufWinEnter normal '"
     au BufEnter *.css set noexpandtab
-    au BufEnter *.html set tabstop=4
+"    au BufEnter *.html set tabstop=4
     
     au BufEnter *.cc,*.cpp map [o :!./%<<CR>
     au BufEnter *.cc,*.cpp imap [o <C-O>[o
