@@ -82,6 +82,7 @@ alias ....='cd ../../..'
 alias mmv='noglob zmv -W'
 alias zcp='zmv -C'
 alias zln='zmv -L'
+alias pfm='git ls-files -m |xargs pyflakes'
 
 bindkey -e #because EDITOR contains vi
 bindkey '\e[H' beginning-of-line
@@ -99,3 +100,5 @@ export PAGER=less
     export PATH=~/bin:$PATH
 #fi
 export DJANGO_SETTINGS_MODULE='settings'
+stty stop undef
+
