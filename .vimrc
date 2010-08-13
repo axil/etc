@@ -431,6 +431,7 @@ autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+au BufEnter {*.html,*.css} set noexpandtab nosmarttab tabstop=4 autoindent
 
 "___________Autocommands: symmetric differences__________________
 if $OS=='Windows_NT'
@@ -455,14 +456,12 @@ if $OS=='Windows_NT'
     au BufEnter *.py map <F9> :!D:/Utilities/Development/Python/python.exe %:gs?\\?/? <CR>
     au BufEnter {*.vim,_vimrc} nnoremap <F9> :source % \| set noreadonly<CR>
     au BufEnter {*.py,*.vim,_vimrc} imap <F9> <C-O><F9>
-    au BufEnter {*.css} set noexpandtab
 
     " -switch header<>body
     au BufEnter *.cpp nnoremap <F6> :e %<.h<CR>
     au BufEnter *.h nnoremap <F6> :e %<.cpp<CR>
 
     " -tabstop
-"    au BufEnter {*.cpp,*.c} set tabstop=4
     au BufEnter *.py set tabstop=8
 
     au BufEnter *.asmx so D:\Utilities\Editors\Vim\vim60\syntax\cs.vim
@@ -470,8 +469,6 @@ else
     au BufEnter *.icc so $VIM/vim62/syntax/cpp.vim
     au BufEnter *.h,*.cc,*.pl set formatoptions-=r
     au BufWinEnter normal '"
-    au BufEnter *.css set noexpandtab
-"    au BufEnter *.html set tabstop=4
     
     au BufEnter *.cc,*.cpp map [o :!./%<<CR>
     au BufEnter *.cc,*.cpp imap [o <C-O>[o
