@@ -270,6 +270,7 @@ endif
     map xx "_dd
     ounmap xx
   "- join lines
+    map <C-J> J
     imap <C-J> <C-O>J
 
 " _____________Mappings: symmetric differences_____________
