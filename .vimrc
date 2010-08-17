@@ -32,13 +32,13 @@ set smartcase			"for ?,/,n,N,:g,:s, not for *,#,gd,tagsearch,etc.
 set iskeyword=a-z,A-Z,48-57,_   "for gd
 set ww=<,>,[,]			"when cursor is at the end-of-line
 set nohlsearch
-  "-x-coord format
+  "-horizontal format
 set formatoptions=tcq		"only for new files, see "au" section below
-set textwidth=0
-set smarttab
-set expandtab			"pep8
+set tabstop=8                   "same
+set expandtab			"same (pep8 for python)
 set shiftwidth=4
-set tabstop=8
+set smarttab
+set textwidth=0
 set shiftround			"shifting blocks
   "-read/write
 set readonly
@@ -432,7 +432,8 @@ autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-au BufEnter {*.html,*.css} set noexpandtab nosmarttab tabstop=4 autoindent
+au BufEnter * set expandtab tabstop=8
+au BufEnter {*.html,*.css} set noexpandtab tabstop=4
 
 "___________Autocommands: symmetric differences__________________
 if $OS=='Windows_NT'
@@ -461,9 +462,6 @@ if $OS=='Windows_NT'
     " -switch header<>body
     au BufEnter *.cpp nnoremap <F6> :e %<.h<CR>
     au BufEnter *.h nnoremap <F6> :e %<.cpp<CR>
-
-    " -tabstop
-    au BufEnter *.py set tabstop=8
 
     au BufEnter *.asmx so D:\Utilities\Editors\Vim\vim60\syntax\cs.vim
 else
