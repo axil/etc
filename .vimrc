@@ -476,6 +476,8 @@ else
     au BufEnter *.cc,*.cpp map [U :!g++ -o%< % && ./%<<CR>
     au BufEnter *.py,*.pl map [U :!python %<CR>
     au BufEnter *.py,*.pl imap [U <C-O>:!python %<CR>
+    au BufEnter *.py,*.pl map [s :!sudo ./go.sh<CR>
+    au BufEnter *.py,*.pl imap [s <C-O>:!sudo ./go.sh<CR>
 endif
 augroup end    
 
