@@ -189,8 +189,11 @@ endif
     map <F3> :Sexplore<CR>
     imap <F3> <C-O><F3>
   " -resize
-    map <F5> <C-W>_<C-W>\|
-    imap <F5> <C-O><C-W>_<C-O><C-W>\|<C-O>zz
+    map <F5> <C-W>_
+    imap <F5> <C-O><C-W>_<C-O>zz
+  " -resize using equal width
+    map <C-F5> <C-W>_<C-W>\|
+    imap <C-F5> <C-O><C-W>_<C-O><C-W>\|<C-O>zz
   " -previous window  
     map <F6> <C-W>w
     imap <F6> <C-O><C-W>w
