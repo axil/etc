@@ -34,11 +34,11 @@ set ww=<,>,[,]			"when cursor is at the end-of-line
 set nohlsearch
   "-horizontal format
 set formatoptions=tcq		"only for new files, see "au" section below
-set tabstop=8                   "same
-set expandtab			"same (pep8 for python)
-set shiftwidth=4
-set smarttab
 set textwidth=0
+  "-tabs
+set smarttab
+set expandtab			"pep8
+set shiftwidth=4
 set shiftround			"shifting blocks
   "-read/write
 set readonly
@@ -432,8 +432,10 @@ autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-au BufEnter * set expandtab tabstop=8
-au BufEnter {*.html,*.css} set noexpandtab tabstop=4
+
+au BufEnter * set expandtab smarttab tabstop=8
+au BufEnter {*.html,*.css} set noexpandtab nosmarttab tabstop=4
+au BufEnter {*.c,*.cpp,*.m} set noexpandtab nosmarttab tabstop=4
 
 "___________Autocommands: symmetric differences__________________
 if $OS=='Windows_NT'
@@ -479,5 +481,5 @@ else
     au BufEnter *.py,*.pl map [s :!sudo ./go.sh<CR>
     au BufEnter *.py,*.pl imap [s <C-O>:!sudo ./go.sh<CR>
 endif
-augroup end    
+augroup end
 
