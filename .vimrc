@@ -275,6 +275,11 @@ endif
   "- join lines
     map <C-J> J
     imap <C-J> <C-O>J
+  "- set/remove debug point
+    map <F4> "='import pdb; pdb.set_trace()000'<CR>[P
+    imap <F4> <C-O>"='import pdb; pdb.set_trace()000'<CR>[P
+    map <C-F4> "='import ipdb; ipdb.set_trace()000'<CR>[P
+    imap <C-F4> <C-O>"='import ipdb; ipdb.set_trace()000'<CR>[P
 
 " _____________Mappings: symmetric differences_____________
 if $OS=='Windows_NT'
