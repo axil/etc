@@ -41,7 +41,6 @@ set expandtab			"pep8
 set shiftwidth=4
 set shiftround			"shifting blocks
   "-read/write
-set readonly
 set autowrite
   "-make
 set path+=..,../include,templates
@@ -276,10 +275,10 @@ endif
     map <C-J> J
     imap <C-J> <C-O>J
   "- set/remove debug point
-    map <F4> "='import pdb; pdb.set_trace()000'<CR>[P
-    imap <F4> <C-O>"='import pdb; pdb.set_trace()000'<CR>[P
-    map <C-F4> "='import ipdb; ipdb.set_trace()000'<CR>[P
-    imap <C-F4> <C-O>"='import ipdb; ipdb.set_trace()000'<CR>[P
+    map <F4> "='import ipdb; ipdb.set_trace()000'<CR>[P
+    imap <F4> <C-O>"='import ipdb; ipdb.set_trace()000'<CR>[P
+    map <C-F4> "='import pdb; pdb.set_trace()000'<CR>[P
+    imap <C-F4> <C-O>"='import pdb; pdb.set_trace()000'<CR>[P
 
 " _____________Mappings: symmetric differences_____________
 if $OS=='Windows_NT'
@@ -466,7 +465,7 @@ endif
 if $OS=='Windows_NT'
     " -run
     au BufEnter *.py map <F9> :!D:/Utilities/Development/Python/python.exe %:gs?\\?/? <CR>
-    au BufEnter {*.vim,_vimrc} nnoremap <F9> :source % \| set noreadonly<CR>
+    au BufEnter {*.vim,_vimrc} nnoremap <F9> :source %<CR>
     au BufEnter {*.py,*.vim,_vimrc} imap <F9> <C-O><F9>
 
     " -switch header<>body
