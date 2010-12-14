@@ -83,7 +83,7 @@ alias mmv='noglob zmv -W'
 alias zcp='zmv -C'
 alias zln='zmv -L'
 alias pfm='git ls-files -m |xargs pyflakes'
-alias mysudo='sudo PYTHONPATH=$PYTHONPATH'
+#alias mysudo='sudo PYTHONPATH=$PYTHONPATH'
 alias ack='ack --pager="less -r"'
 alias ll='ls -l'
 
@@ -101,9 +101,9 @@ export EDITOR=vim
 #if [[ -z "$STY" ]]; then
 #    export PYTHONPATH=/usr/local/egg/lib/python2.5/site-packages/:$PYTHONPATH
 #    export PATH=~/bin:/usr/local/egg/bin:$PATH
-    export WORKON_HOME=/var/envs
-    source /usr/local/egg/bin/virtualenvwrapper.sh 
-    export PATH=~/bin:$PATH
+export WORKON_HOME=/var/envs
+source /usr/local/bin/virtualenvwrapper.sh 
+export PATH=~/bin:$PATH
 #fi
 export DJANGO_SETTINGS_MODULE='settings'
 stty stop undef
