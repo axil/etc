@@ -1,6 +1,6 @@
 [user]
-	email = lev.maximov@gmail.com
 	name = Lev Maximov
+	email = lev.maximov@gmail.com
 [alias]
 	ci = commit
 	co = checkout
@@ -8,14 +8,19 @@
 	st = status
 	br = branch
 	sb = show-branch #--current
+	ls = ls-files -r --name-only
+	ll = ls-files -r
 [core]
 	autocrlf = false
-	excludesfile = /home/lev/.gitignore
+	excludesfile = ~/.gitignore
 [mergetool "vim"]
 	trustExitCode = true
 	cmd = vim -d $LOCAL $MERGED $REMOTE
-[merge]
-	tool = vim
 [mergetool "vb"]
 	cmd = vim -d $LOCAL $BASE $REMOTE
 	trustExitCode = true
+[merge]
+	tool = vim
+[color]
+	branch = auto
+	diff = auto
