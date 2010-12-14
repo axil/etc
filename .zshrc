@@ -83,6 +83,9 @@ alias mmv='noglob zmv -W'
 alias zcp='zmv -C'
 alias zln='zmv -L'
 alias pfm='git ls-files -m |xargs pyflakes'
+alias mysudo='sudo PYTHONPATH=$PYTHONPATH'
+alias ack='ack --pager="less -r"'
+alias ll='ls -l'
 
 bindkey -e #because EDITOR contains vi
 bindkey '\e[H' beginning-of-line
@@ -96,9 +99,17 @@ umask 002
 export EDITOR=vim
 export PAGER=less
 #if [[ -z "$STY" ]]; then
-    export PYTHONPATH=/usr/local/egg/lib/python2.5/site-packages/:$PYTHONPATH
+#    export PYTHONPATH=/usr/local/egg/lib/python2.5/site-packages/:$PYTHONPATH
+#    export PATH=~/bin:/usr/local/egg/bin:$PATH
+    export WORKON_HOME=/var/envs
+    source /usr/local/egg/bin/virtualenvwrapper.sh 
     export PATH=~/bin:$PATH
 #fi
 export DJANGO_SETTINGS_MODULE='settings'
 stty stop undef
 
+cdp () {
+  cd "$(python -c "import os.path as _, ${1}; \
+    print _.dirname(_.realpath(${1}.__file__[:-1]))"
+  )"
+}
