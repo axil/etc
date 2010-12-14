@@ -11,7 +11,7 @@
 	ls = ls-files -r --name-only
 	ll = ls-files -r
 [core]
-	autocrlf = false
+	#autocrlf = false
 	excludesfile = ~/.gitignore
 [mergetool "vim"]
 	trustExitCode = true
@@ -22,5 +22,5 @@
 [merge]
 	tool = vim
 [color]
-	branch = auto
-	diff = auto
+	#branch = auto
+	#diff = auto
