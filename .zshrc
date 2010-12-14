@@ -97,7 +97,7 @@ bindkey 'OB' history-beginning-search-forward
 umask 002
 
 export EDITOR=vim
-export PAGER=less
+#export PAGER=less
 #if [[ -z "$STY" ]]; then
 #    export PYTHONPATH=/usr/local/egg/lib/python2.5/site-packages/:$PYTHONPATH
 #    export PATH=~/bin:/usr/local/egg/bin:$PATH

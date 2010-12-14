@@ -22,5 +22,5 @@
 [merge]
 	tool = vim
 [color]
-	#branch = auto
-	#diff = auto
+	branch = auto
+	diff = auto
