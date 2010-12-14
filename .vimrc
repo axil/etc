@@ -36,9 +36,9 @@ set nohlsearch
 set formatoptions=tcq		"only for new files, see "au" section below
 set textwidth=0
   "-tabs
-set smarttab
-set expandtab			"pep8
-set shiftwidth=4
+"set smarttab
+"set expandtab			"pep8
+"set shiftwidth=4               "doing this globally makes indentexpr crazy for config files
 set shiftround			"shifting blocks
   "-read/write
 set autowrite
@@ -441,9 +441,10 @@ autocmd BufReadPost *
     \   exe "normal g`\"" |
     \ endif
 
-au BufEnter * set expandtab smarttab tabstop=8
-au BufEnter {*.html,*.css} set noexpandtab nosmarttab tabstop=4
-au BufEnter {*.c,*.cpp,*.m} set noexpandtab nosmarttab tabstop=4
+"au BufEnter * set noexpandtab nosmarttab tabstop=8    - this is the default
+au BufEnter *.py set expandtab smarttab shiftwidth=4
+au BufEnter {*.html,*.css} set tabstop=4 shiftwidth=4
+au BufEnter {*.c,*.cpp,*.m} set tabstop=4 shiftwidth=4
 
 "___________Autocommands: symmetric differences__________________
 if $OS=='Windows_NT'
