@@ -24,7 +24,7 @@ if [ -n "$SSH_TTY" ]; then
     export VDDS='/var/django/django-stable/'
     export VDDT='/var/django/django-trunk/'
     
-    export VDPT='/var/django/phones-test'
+    export VDPT='/var/django/phones-trunk'
     export VDPTT='/var/django/phones-tests'
     export VDPS='/var/django/phones-stable'
     export VDPQ='/var/django/phones-quotes'
