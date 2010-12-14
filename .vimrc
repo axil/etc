@@ -279,6 +279,7 @@ endif
     imap <F4> <C-O>"='import ipdb; ipdb.set_trace()000'<CR>[P
     map <C-F4> "='import pdb; pdb.set_trace()000'<CR>[P
     imap <C-F4> <C-O>"='import pdb; pdb.set_trace()000'<CR>[P
+    map <C-F3> "='import rpdb2; rpdb2.start_embedded_debugger("qqq")000'<CR>[P
 
 " _____________Mappings: symmetric differences_____________
 if $OS=='Windows_NT'
