@@ -4,5 +4,3 @@
 #line-edit
 \b backspace
 ^? delete
-#env
-LESS=-ig

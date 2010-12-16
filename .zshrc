@@ -106,6 +106,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 export PATH=~/bin:$PATH
 #fi
 export DJANGO_SETTINGS_MODULE='settings'
+export LESS=FRSXi
 stty stop undef
 
 cdp () {
