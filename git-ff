@@ -20,6 +20,9 @@ if len(sys.argv) == 2:
     tracked = '/'.join((sys.argv[1], branch))
 else:
     remote = call('git config branch.%s.remote' % branch)
+    if remote == '':
+        print 'branch not tracking and no remote given, aborting'
+        exit(1)
     merge = call('git config branch.%s.merge' % branch)
     if remote=='.':
         tracked = merge
