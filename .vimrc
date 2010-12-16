@@ -185,8 +185,8 @@ endif
     map <F2> :w<CR>
     imap <F2> <C-O><F2>
   "-explorer
-    map <F3> :Sexplore<CR>
-    imap <F3> <C-O><F3>
+"    map <F3> :Sexplore<CR>
+"    imap <F3> <C-O><F3>
   " -resize
     map <F5> <C-W>_
     imap <F5> <C-O><C-W>_<C-O>zz
@@ -450,7 +450,7 @@ autocmd BufReadPost *
     \ endif
 
 "au BufEnter * set noexpandtab nosmarttab tabstop=8    - this is the default
-au BufEnter *.py set expandtab smarttab shiftwidth=4
+"au BufEnter *.py set expandtab smarttab shiftwidth=4
 au BufEnter {*.html,*.css} set tabstop=4 shiftwidth=4
 au BufEnter {*.c,*.cpp,*.m} set tabstop=4 shiftwidth=4
 
