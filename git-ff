@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# vim: filetype=python :
 
 import re, os, sys
 
