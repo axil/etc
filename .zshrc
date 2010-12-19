@@ -102,7 +102,7 @@ export EDITOR=vim
 #    export PYTHONPATH=/usr/local/egg/lib/python2.5/site-packages/:$PYTHONPATH
 #    export PATH=~/bin:/usr/local/egg/bin:$PATH
 export WORKON_HOME=/var/envs
-source /usr/local/bin/virtualenvwrapper.sh 
+[[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh 
 export PATH=~/bin:$PATH
 #fi
 export DJANGO_SETTINGS_MODULE='settings'
