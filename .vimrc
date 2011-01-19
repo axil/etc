@@ -274,6 +274,8 @@ endif
   "- join lines
     map <C-J> J
     imap <C-J> <C-O>J
+  "- insert formatted
+    map [P ]p
 
 " _____________Mappings: symmetric differences_____________
 if $OS=='Windows_NT'
