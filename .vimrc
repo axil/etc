@@ -40,6 +40,7 @@ set textwidth=0
 "set expandtab			"pep8
 "set shiftwidth=4               "doing this globally makes indentexpr crazy for config files
 set shiftround			"shifting blocks
+set tabstop=8
   "-read/write
 set autowrite
   "-make
@@ -279,11 +280,11 @@ if $OS=='Windows_NT'
     map <C-Right> w
     map <C-Left> b
   "- set/remove debug point
-    map <F4> "='import ipdb; ipdb.set_trace()000'<CR>[P
-    imap <F4> <C-O>"='import ipdb; ipdb.set_trace()000'<CR>[P
-    map <C-F4> "='import pdb; pdb.set_trace()000'<CR>[P
-    imap <C-F4> <C-O>"='import pdb; pdb.set_trace()000'<CR>[P
-    map <F3> "='import rpdb2; rpdb2.start_embedded_debugger("qqq")000'<CR>[P
+    map <F4> "='import ipdb; ipdb.set_trace()000'<CR>[p
+    imap <F4> <C-O>"='import ipdb; ipdb.set_trace()000'<CR>[p
+    map <C-F4> "='import pdb; pdb.set_trace()000'<CR>[p
+    imap <C-F4> <C-O>"='import pdb; pdb.set_trace()000'<CR>[p
+    map <F3> "='import rpdb2; rpdb2.start_embedded_debugger("qqq")000'<CR>[p
     imap <F3> <C-O><F3>
 else
     map [C w
@@ -291,11 +292,11 @@ else
     map [D b
     imap [D <C-Left>
   "- set/remove debug point
-    map [P "='import ipdb; ipdb.set_trace()000'<CR>[P
-    imap [P <C-O>"='import ipdb; ipdb.set_trace()000'<CR>[P
-    map [n "='import pdb; pdb.set_trace()000'<CR>[P
-    imap [n <C-O>"='import pdb; pdb.set_trace()000'<CR>[P
-    map [O "='import rpdb2; rpdb2.start_embedded_debugger("qqq")000'<CR>[P
+    map [P "='import ipdb; ipdb.set_trace()000'<CR>[p
+    imap [P <C-O>"='import ipdb; ipdb.set_trace()000'<CR>[p
+    map [n "='import pdb; pdb.set_trace()000'<CR>[p
+    imap [n <C-O>"='import pdb; pdb.set_trace()000'<CR>[p
+    map [O "='import rpdb2; rpdb2.start_embedded_debugger("qqq")000'<CR>[p
     imap [O <C-O>[O
 endif
 
@@ -491,7 +492,7 @@ else
     au BufEnter *.cc,*.cpp imap [o <C-O>[o
 
     "-<F9>
-    au BufEnter *.cc,*.cpp map [U :!g++ -o%< % && ./%<<CR>
+    au BufEnter *.cc,*.cpp map [U :!g++ -lrt -o%< % && ./%<<CR>
     au BufEnter *.py,*.pl map [U :!python %<CR>
     au BufEnter *.py,*.pl imap [U <C-O>:!python %<CR>
     au BufEnter *.py,*.pl map [s :!sudo ./go.sh<CR>
