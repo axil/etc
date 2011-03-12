@@ -17,7 +17,7 @@ def install(filename, install_dir):
         print 'file not copied'
 
 def python_vim():
-    home = os.environ['HOME']
+    home = os.environ.get('HOME', os.environ['HOMEDRIVE'] + os.environ['HOMEPATH'])
     if sys.platform == 'win32':
         if home[-1] not in ['/', '\\']:
             home += '/'
