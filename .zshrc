@@ -86,6 +86,7 @@ alias pfm='git ls-files -m |xargs pyflakes'
 #alias mysudo='sudo PYTHONPATH=$PYTHONPATH'
 alias ack='ack --pager="less -r"'
 alias ll='ls -l'
+alias log='less +F /var/log/django/phones-lev.log'
 
 bindkey -e #because EDITOR contains vi
 bindkey '\e[H' beginning-of-line
