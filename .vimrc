@@ -78,22 +78,19 @@ if $OS=='Windows_NT'
 
 "    let $HOME=$VIM
     winpos 0 0
+    set guifont=courier_new:h10:cRUSSIAN
     if $COMPUTERNAME=='NAME'
         set lines=54
         set columns=138
-        set guifont=courier_new:h12:cRUSSIAN
     elseif $COMPUTERNAME=='COMPUTERNAME'
         set lines=43
         set columns=125
-        set guifont=courier_new:h10:cRUSSIAN
     elseif $COMPUTERNAME=='L15-LEV'
         set lines=54
         set columns=157
-        set guifont=courier_new:h10:cRUSSIAN
     else
         set lines=49
         set columns=126
-        set guifont=courier_new:h12:cRUSSIAN
     endif
     lan english                     " vim 7.0 feature
     set encoding=utf-8
