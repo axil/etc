@@ -11,16 +11,15 @@
 	ls = ls-files -r --name-only
 	ll = ls-files -r
 [core]
-	#autocrlf = false
-	excludesfile = ~/.gitignore
+	autocrlf = false
+	excludesfile = C:/Documents and Settings/Lev/.gitignore
 [merge]
 	tool = vim
 [mergetool "vim"]
-	cmd = vim -d $LOCAL $MERGED $REMOTE
+	cmd = D:/Utilities/Editors/Vim/gvim.exe -d $LOCAL $MERGED $REMOTE
 	trustExitCode = true
 [mergetool "vb"]
-	cmd = vim -d $LOCAL $BASE $REMOTE
+	cmd = D:/Utilities/Editors/Vim/gvim.exe -d $LOCAL $BASE $REMOTE
 	trustExitCode = true
-[color]
-	branch = auto
-	diff = auto
+[http]
+	sslcainfo = D:\\Program Files\\Git\\bin\\curl-ca-bundle.crt
