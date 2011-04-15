@@ -35,4 +35,4 @@ def git_ff():
 
 if __name__ == '__main__':
     python_vim()
-    git_ff()
+#    git_ff()
