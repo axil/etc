@@ -172,9 +172,9 @@ endif
 " General movement:
   "-begin/end of file
     map <C-Home> gg
-    map! <C-Home> gg
+    map! <C-Home> <C-O>gg
     map <C-End> G
-    map! <C-End> G
+    map! <C-End> <C-O>G
   "-inserting blocks
     nnoremap p P
     nnoremap P p
