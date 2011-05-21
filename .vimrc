@@ -279,7 +279,9 @@ if $OS=='Windows_NT'
     map <C-Left> b
   "- set/remove debug point
     map <F4> "='import ipdb; ipdb.set_trace()000'<CR>[p
+    map <S-F4> "='import ipdb; ipdb.set_trace()000'<CR>[P
     imap <F4> <C-O>"='import ipdb; ipdb.set_trace()000'<CR>[p
+    imap <S-F4> <C-O>"='import ipdb; ipdb.set_trace()000'<CR>[P
     map <C-F4> "='import pdb; pdb.set_trace()000'<CR>[p
     imap <C-F4> <C-O>"='import pdb; pdb.set_trace()000'<CR>[p
     map <F3> "='import rpdb2; rpdb2.start_embedded_debugger("qqq")000'<CR>[p
