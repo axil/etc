@@ -59,6 +59,7 @@ if [ -n "$SSH_TTY" ]; then
     export VDFT='/var/django/pybb-trunk'
     export VDFS='/var/django/pybb-stable'
     export VDFL='/var/django/pybb-lev'
+    export VDFE='/var/django/pybb-live'
     
     export HLFS='/home/lev/pybb-stable'
 
