@@ -332,7 +332,7 @@ if $OS=='Windows_NT'
     imap <M-C-PageDown> <C-O>gt
 
   "-Alt-= to create the tabs
-    map ½ :tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>1gt
+    map ½ :tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>:cd ../..<CR>1gt
 
 else
     "-numxpad
