@@ -23,6 +23,8 @@ if [ -n "$SSH_TTY" ]; then
     export VD='/var/django'
     export VDDS='/var/django/django-stable/'
     export VDDT='/var/django/django-trunk/'
+    export VDDL='/var/django/django-lev/'
+    export VDHT='/var/django/healthfoods-trunk/'
     
     export VDPT='/var/django/phones-trunk'
     export VDPTT='/var/django/phones-tests'
