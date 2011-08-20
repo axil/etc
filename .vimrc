@@ -239,8 +239,8 @@ endif
   "-disable save and exit
     map ZZ <Nop>
   "-commenting/uncommenting
-    vmap . :<C-U>let @9=@/<Bar>'<,'>s/^/#/<Bar>let @/=@9<Bar>echo<CR>
-    vmap , :<C-U>let @9=@/<Bar>'<,'>s/^#//<Bar>let @/=@9<Bar>echo<CR>
+    vmap <silent> . :<C-U>let @9=@/<Bar>'<,'>s/^/#/<Bar>let @/=@9<CR>
+    vmap <silent> , :<C-U>let @9=@/<Bar>'<,'>s/^#//<Bar>let @/=@9<CR>
   "-tab
     noremap <C-P> <C-I>
     noremap <Tab> i<Tab>
@@ -450,8 +450,10 @@ autocmd BufReadPost *
 au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.js} set tabstop=4 shiftwidth=4
 
   "-commenting/uncommenting
-au BufEnter {*.c,*.cpp,*.m,*.js} vmap <buffer> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<Bar>echo<CR>
-au BufEnter {*.c,*.cpp,*.m,*.js} vmap <buffer> , :<C-U>let @9=@/<Bar>'<,'>s,^//,,<Bar>let @/=@9<Bar>echo<CR>
+au BufEnter {*.c,*.cpp,*.m,*.js,*.html} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<CR>
+au BufEnter {*.c,*.cpp,*.m,*.js,*.html} vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^//,,<Bar>let @/=@9<CR>
+au BufEnter .vimrc vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,",<Bar>let @/=@9<CR>
+au BufEnter .vimrc vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^",,<Bar>let @/=@9<CR>
 
 
 "___________Autocommands: symmetric differences__________________
