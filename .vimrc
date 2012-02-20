@@ -36,8 +36,6 @@ set nohlsearch
 set formatoptions=tcq		"only for new files, see "au" section below
 set textwidth=0
   "-tabs
-"set smarttab
-set expandtab			"pep8
 "set shiftwidth=4               "doing this globally makes indentexpr crazy for config files
 set shiftround			"shifting blocks
 set tabstop=8
@@ -383,6 +381,8 @@ else
     imap [A <C-Up>
     map [B <C-Down>
     imap [B <C-Down>
+  "-override write protection
+    cmap w!! %!sudo tee > /dev/null %
 endif
 
 " _____- neutralizing some new "features" in v7.0______
@@ -451,7 +451,9 @@ autocmd BufReadPost *
 
 "au BufEnter * set noexpandtab nosmarttab tabstop=8    - this is the default
 "au BufEnter *.py set expandtab smarttab shiftwidth=4
-au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.js} set tabstop=4 shiftwidth=4
+"au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.js} set shiftwidth=4 tabstop=8 smarttab expandtab
+"au BufEnter *.py  set shiftwidth=4 tabstop=8 smarttab expandtab
+"au BufEnter *.css set shiftwidth=8 tabstop=8 nosmarttab noexpandtab
 
   "-commenting/uncommenting
 au BufEnter {*.c,*.cpp,*.m,*.js,*.html} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<CR>
