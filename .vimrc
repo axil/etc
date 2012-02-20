@@ -37,10 +37,14 @@ set formatoptions=tcq		"only for new files, see "au" section below
 set textwidth=0
   "-tabs
 "set smarttab
-"set expandtab			"pep8
+set expandtab			"pep8
 "set shiftwidth=4               "doing this globally makes indentexpr crazy for config files
 set shiftround			"shifting blocks
 set tabstop=8
+set shiftwidth=4
+set autoindent
+set expandtab
+set smarttab
   "-read/write
 set autowrite
   "-make
