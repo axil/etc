@@ -75,6 +75,7 @@ compinit
 alias ls='ls -F --color=auto'
 alias rm='rm -r'
 alias vi='/usr/bin/vim'
+alias vis='sudo -E /usr/bin/vim'
 alias bc='bc -l -q'
 alias phgrep='grep --include="*.html" --include="*.py" --exclude-dir=.git'
 alias pgrep='grep --include="*.py"'
