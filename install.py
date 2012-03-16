@@ -32,7 +32,8 @@ def git_ff():
     if sys.platform == 'win32':
         return
     install('git-ff', os.environ['HOME'] + '/bin/')
+    install('git-fixup', os.environ['HOME'] + '/bin/')
 
 if __name__ == '__main__':
-    python_vim()
-#    git_ff()
+#    python_vim()
+    git_ff()
