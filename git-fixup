@@ -2,9 +2,11 @@
 # vim: filetype=python :
 
 import os, sys
+from subprocess import Popen, PIPE
 
 def call(a):
-    return os.popen(a).read().strip()
+    p = Popen(a, shell=True, stdout=PIPE)
+    return p.stdout.read().strip()
 
 if len(sys.argv) > 2:
     print 'usage: git fixup [<rev>]'
@@ -14,8 +16,10 @@ elif len(sys.argv) == 2:
 else:
     rev = 'HEAD'
 
-log = call("git log -1 --format=%s " + rev)
+cmd = "git log -1 --format=%s " + rev
+log = call(cmd)
 if log:
     print 'fixup against "%s"' % log
-    call('git commit -m "fixup! %s"' % log)
+    print call('git commit -m "fixup! %s"' % log)
+
 
