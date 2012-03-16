@@ -15,6 +15,7 @@ else:
     rev = 'HEAD'
 
 log = call("git log -1 --format=%s " + rev)
-print 'fixup against "%s"' % log
-call('git commit -m "fixup! %s"' % log)
+if log:
+    print 'fixup against "%s"' % log
+    call('git commit -m "fixup! %s"' % log)
 
