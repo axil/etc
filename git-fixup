@@ -1,0 +1,20 @@
+#!/usr/bin/python
+# vim: filetype=python :
+
+import os, sys
+
+def call(a):
+    return os.popen(a).read().strip()
+
+if len(sys.argv) > 2:
+    print 'usage: git fixup [<rev>]'
+    exit(1)
+elif len(sys.argv) == 2:
+    rev = sys.argv[1]
+else:
+    rev = 'HEAD'
+
+log = call("git log -1 --format=%s " + rev)
+print 'fixup against "%s"' % log
+call('git commit -m "fixup! %s"' % log)
+
