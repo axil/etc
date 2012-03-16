@@ -39,9 +39,11 @@ set textwidth=0
 "set shiftwidth=4               "doing this globally makes indentexpr crazy for config files
 set shiftround			"shifting blocks
 set tabstop=8
-set shiftwidth=4
 set autoindent
-set expandtab
+
+set noexpandtab                 "for conf files
+set shiftwidth=8		"same
+
 set smarttab
   "-read/write
 set autowrite
@@ -454,6 +456,7 @@ autocmd BufReadPost *
 "au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.js} set shiftwidth=4 tabstop=8 smarttab expandtab
 "au BufEnter *.py  set shiftwidth=4 tabstop=8 smarttab expandtab
 "au BufEnter *.css set shiftwidth=8 tabstop=8 nosmarttab noexpandtab
+au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.jsi,*py} set expandtab shiftwidth=4
 
   "-commenting/uncommenting
 au BufEnter {*.c,*.cpp,*.m,*.js,*.html} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<CR>
