@@ -265,8 +265,7 @@ endif
   "-x key
     map x "_d
     ounmap x
-    map xx "_dd
-    ounmap xx
+    nmap xx "_dd
   "- join lines
     map <C-J> J
     imap <C-J> <C-O>J
