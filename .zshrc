@@ -10,62 +10,13 @@ unsetopt flowcontrol
 # If interactive
 if [ -n "$SSH_TTY" ]; then
   # Prompt
-# PS1='\[\u@\h:\W\]% '
-  PS1='%n@%m:%~%# '
+#   PS1='\[\u@\h:\W\]% '
+    PS1='%n@%m:%~%# '
   # Quote of the day
 #  /usr/games/fortune |tee -a "/home/afti/1998/lev/fortune.txt"
 #  /usr/games/fortune >> /home/afti/1998/lev/fortune.txt
-    export PPT='/projects/phones/trunk'
-    export PPS='/projects/phones/stable'
-    export PFT='/projects/pybb/trunk'
-    export PFS='/projects/pybb/stable'
-    
-    export VD='/var/django'
-    export VDDS='/var/django/django-stable/'
-    export VDDT='/var/django/django-trunk/'
-    export VDDL='/var/django/django-lev/'
-    export VDHT='/var/django/healthfoods-trunk/'
-    
     export VDPT='/var/django/phones-trunk'
-    export VDPTT='/var/django/phones-tests'
-    export VDPS='/var/django/phones-stable'
-    export VDPQ='/var/django/phones-quotes'
-    export VDPP='/var/django/phones-preview'
-    export VDPK='/var/django/phones-piotr'
-    export VDPM='/var/django/phones-merge'
-    export VDPE='/var/django/phones-evandro'
-    
-    export HLPT='/home/lev/phones-trunk'
-    export HLPS='/home/lev/phones-stable'
-    export HLPTP='/home/lev/phones-trunk/phones'
-    export HLFT='/home/lev/pybb-trunk'
-    export SP='/usr/local/lib/python2.5/site-packages'
-
-    export VDPR='/var/django/phones-redesign'
-    export HLPR='/home/lev/phones-redesign'
-
-    export HLPE='/home/lev/phones-editorspick'
-
-    export VDPH='/var/django/phones-helen'
-    export VDFH='/var/django/pybb-helen'
-
-    export VDPA='/var/django/phones-artiom'
-    export VDFA='/var/django/pybb-artiom'
-
-    export VDPD='/var/django/phones-devel'
-    export VDPI='/var/django/phones-istvan'
-
-    export VDPF='/var/django/phones-future'
     export VDPL='/var/django/phones-lev'
-    
-    export VDFT='/var/django/pybb-trunk'
-    export VDFS='/var/django/pybb-stable'
-    export VDFL='/var/django/pybb-lev'
-    export VDFE='/var/django/pybb-live'
-    
-    export HLFS='/home/lev/pybb-stable'
-
-    export PP='/projects/phones.git'
 fi
 
 autoload -U compinit zmv
@@ -90,7 +41,6 @@ alias pfm='git ls-files -m |xargs pyflakes'
 #alias mysudo='sudo PYTHONPATH=$PYTHONPATH'
 alias ack='ack --pager="less -r"'
 alias ll='ls -l'
-alias log='less +F /var/log/django/phones-lev.log'
 
 bindkey -e #because EDITOR contains vi
 bindkey '\e[H' beginning-of-line
