@@ -17,6 +17,7 @@ if [ -n "$SSH_TTY" ]; then
 #  /usr/games/fortune >> /home/afti/1998/lev/fortune.txt
     export VDPT='/var/django/phones-trunk'
     export VDPL='/var/django/phones-lev'
+    export VDCT='/var/django/cheese-trunk'
 fi
 
 autoload -U compinit zmv
@@ -41,6 +42,7 @@ alias pfm='git ls-files -m |xargs pyflakes'
 #alias mysudo='sudo PYTHONPATH=$PYTHONPATH'
 alias ack='ack --pager="less -r"'
 alias ll='ls -l'
+alias se='sudoedit'
 
 bindkey -e #because EDITOR contains vi
 bindkey '\e[H' beginning-of-line

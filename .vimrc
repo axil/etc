@@ -399,7 +399,7 @@ if v:version>=700
     let pos=virtcol('.')            " when pressing CR in the beginning of the line
     let ind=indent(line('.'))
     if pos<=ind+1 && ind!=0
-        let str='y0kopj'
+        let str=':let z=@"y0kopj:let @"=z'
         if pos!=1
             let str=str.'l'
         endif
@@ -455,7 +455,8 @@ autocmd BufReadPost *
 "au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.js} set shiftwidth=4 tabstop=8 smarttab expandtab
 "au BufEnter *.py  set shiftwidth=4 tabstop=8 smarttab expandtab
 "au BufEnter *.css set shiftwidth=8 tabstop=8 nosmarttab noexpandtab
-au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.jsi,*py} set expandtab shiftwidth=4
+au BufEnter {*.c,*.cpp,*.m,*.css,*.jsi,*py} set expandtab shiftwidth=4
+au BufEnter {*.htm,*.html} set noexpandtab nosmarttab ts=4
 
   "-commenting/uncommenting
 au BufEnter {*.c,*.cpp,*.m,*.js,*.html} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<CR>
@@ -502,7 +503,7 @@ else
     au BufEnter *.cc,*.cpp imap [o <C-O>[o
 
     "-<F9>
-    au BufEnter *.cc,*.cpp map [U :!g++ -lrt -o%< % && ./%<<CR>
+    au BufEnter *.cc,*.cpp map <F9> :!g++ -lrt -o%< % && ./%<<CR>
     au BufEnter *.py,*.pl map [U :!python %<CR>
     au BufEnter *.py,*.pl imap [U <C-O>:!python %<CR>
     au BufEnter *.py,*.pl map [s :!sudo ./go.sh<CR>
