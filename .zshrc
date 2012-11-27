@@ -50,6 +50,8 @@ bindkey '\e[F' end-of-line
 bindkey  delete-char
 bindkey 'OA' history-beginning-search-backward
 bindkey 'OB' history-beginning-search-forward
+bindkey '\eOD' backward-word
+bindkey '\eOC' forward-word
  
 umask 002
 
