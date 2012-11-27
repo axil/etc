@@ -455,8 +455,8 @@ autocmd BufReadPost *
 "au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.js} set shiftwidth=4 tabstop=8 smarttab expandtab
 "au BufEnter *.py  set shiftwidth=4 tabstop=8 smarttab expandtab
 "au BufEnter *.css set shiftwidth=8 tabstop=8 nosmarttab noexpandtab
-au BufEnter {*.c,*.cpp,*.m,*.css,*.jsi,*py} set expandtab shiftwidth=4
-au BufEnter {*.htm,*.html} set noexpandtab nosmarttab ts=4 sw=4
+au BufEnter {*.c,*.cpp,*.m,*.css,*.jsi,*py} set expandtab smarttab shiftwidth=4
+au BufEnter {*.htm,*.html} set noexpandtab nosmarttab ts=4 sw=4 indentexpr=
 
   "-commenting/uncommenting
 au BufEnter {*.c,*.cpp,*.m,*.js,*.html} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<CR>
