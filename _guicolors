@@ -1,0 +1,34 @@
+hi Normal	   guifg=grey guibg=black
+hi Comment         term=bold ctermfg=10 guifg=green gui=NONE
+hi Constant        term=underline ctermfg=13 guifg=magenta gui=NONE
+hi DiffAdd         term=bold ctermbg=1 guifg=darkblue gui=NONE
+hi DiffChange      term=bold ctermbg=5 guifg=darkmagenta gui=NONE
+hi DiffDelete      term=bold ctermfg=9 ctermbg=3 guifg=blue guibg=darkcyan gui=NONE
+hi DiffText        term=reverse cterm=bold ctermbg=12 guifg=red gui=NONE
+hi Directory       term=bold ctermfg=11 guifg=cyan gui=NONE
+hi Error           term=reverse ctermfg=15 ctermbg=12 guifg=grey guibg=red gui=bold
+hi ErrorMsg        term=reverse ctermfg=15 ctermbg=12 guifg=grey guibg=red gui=bold
+hi FoldColumn      term=standout ctermfg=11 ctermbg=8 guifg=cyan guibg=darkgrey gui=NONE
+hi Folded          term=standout ctermfg=11 ctermbg=8 guifg=cyan guibg=darkgrey gui=NONE
+hi Identifier      term=underline cterm=bold ctermfg=11 guifg=cyan  gui=NONE
+hi Ignore          ctermfg=0 guifg=black gui=NONE
+hi LineNr          term=underline ctermfg=14 guifg=yellow gui=NONE
+hi ModeMsg         term=bold cterm=bold gui=NONE
+hi MoreMsg         term=bold ctermfg=10 guifg=green  gui=NONE
+hi NonText         term=bold ctermfg=9 guifg=blue gui=NONE
+hi PreProc         term=underline ctermfg=9 guifg=blue gui=NONE
+hi Question        term=standout ctermfg=10 guifg=green gui=NONE
+hi Special         term=bold ctermfg=12 guifg=red gui=NONE
+hi SpecialKey      term=bold ctermfg=9 guifg=blue gui=NONE
+hi Statement       term=bold ctermfg=14 guifg=yellow gui=NONE
+hi StatusLine      term=bold,reverse cterm=bold,reverse guifg=black guibg=grey gui=NONE
+hi StatusLineNC    term=reverse cterm=reverse gui=reverse
+hi Title           term=bold ctermfg=13 guifg=magenta gui=NONE
+hi Todo            term=standout ctermfg=0 guifg=black ctermbg=14 guibg=yellow gui=NONE
+hi Type            term=bold ctermfg=14 guifg=yellow gui=NONE
+hi Underlined      term=underline cterm=underline ctermfg=9 guifg=blue gui=NONE
+hi VertSplit       term=reverse cterm=reverse gui=reverse
+hi Visual          term=reverse cterm=reverse guifg=black guibg=grey gui=NONE
+hi VisualNOS       term=bold,underline cterm=bold,underline guifg=black guibg=grey gui=NONE
+hi WarningMsg      term=standout ctermfg=12 guifg=red gui=NONE
+hi WildMenu        term=standout ctermfg=0 guifg=black ctermbg=14 guibg=yellow gui=NONE
