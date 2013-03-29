@@ -338,6 +338,39 @@ if $OS=='Windows_NT'
   "-Alt-= to create the tabs
     map ½ :tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>:cd ../..<CR>1gt
 
+    map й q
+    map ц w
+    map у e
+    map к r
+    map е t
+    map н y
+    map г u
+    map ш i
+    map щ o
+    map з p
+    map х [
+    map ъ ]
+    map ф a
+    map ы s
+    map в d
+    map а f
+    map п g
+    map р h
+    map о j
+    map л k
+    map д l
+    map ж ;
+    map э '
+    map я z
+    map ч x
+    map с c
+    map м v
+    map и b
+    map т n
+    map ь m
+    map б ,
+    map ю .
+    map . /
 else
     "-numxpad
     map! Oq 1
