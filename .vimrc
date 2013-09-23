@@ -55,6 +55,20 @@ set diffopt+=vertical
 set ruler
 set scrolloff=3
 filetype plugin indent on
+    
+" diff
+set diffexpr=MyDiff()
+function! MyDiff()
+let opt = ""
+if &diffopt =~ "icase"
+	let opt = opt . "-i "
+endif
+if &diffopt =~ "iwhite"
+	let opt = opt . "-b -w "
+endif
+silent execute "!diff -a " . opt . v:fname_in . " " . v:fname_new .
+		\  " > " . v:fname_out
+endfunction
 
 "______________Settings: symmetric differences________________
 if $OS=='Windows_NT'
@@ -104,18 +118,6 @@ if $OS=='Windows_NT'
     set isfname-=:          "for gF
     set ffs=unix,dos
 
-    set diffexpr=MyDiff()
-    function! MyDiff()
-    let opt = ""
-    if &diffopt =~ "icase"
-        let opt = opt . "-i "
-    endif
-    if &diffopt =~ "iwhite"
-        let opt = opt . "-b -w "
-    endif
-    silent execute "!diff -a " . opt . v:fname_in . " " . v:fname_new .
-            \  " > " . v:fname_out
-    endfunction
 else
     set fillchars=vert:\ ,fold:-
     if has("terminfo")
