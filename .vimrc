@@ -53,6 +53,7 @@ set visualbell
 set nrformats=
 set diffopt+=vertical
 set ruler
+set scrolloff=3
 filetype plugin indent on
 
 "______________Settings: symmetric differences________________
