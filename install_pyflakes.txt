@@ -1,0 +1,7 @@
+cd ~/vimfiles/ftplugin
+git clone git@github.com:axil/pyflakes-vim.git
+cd pyflakes-vim
+git submodule init
+git submodule update
+(install downloaded pyflakes?)
+
