@@ -54,6 +54,7 @@ set nrformats=
 set diffopt+=vertical
 set ruler
 set scrolloff=3
+set rtp+=$GOROOT/misc/vim
 filetype plugin indent on
     
 " diff
