@@ -525,6 +525,7 @@ endif
 if $OS=='Windows_NT'
     " -run
     au BufEnter *.py map <F9> :!D:/Utilities/Development/Python/python.exe %:gs?\\?/? <CR>
+    au BufEnter *.go map <F9> :!go run %:gs?\\?/? <CR>
     au BufEnter {*.vim,_vimrc} nnoremap <F9> :source %<CR>
     au BufEnter {*.py,*.vim,_vimrc} imap <F9> <C-O><F9>
 
@@ -549,4 +550,3 @@ else
     au BufEnter *.py,*.pl imap [s <C-O>:!sudo ./go.sh<CR>
 endif
 augroup end
-
