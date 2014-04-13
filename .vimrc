@@ -491,9 +491,9 @@ autocmd BufReadPost *
 "au BufEnter * set noexpandtab nosmarttab tabstop=8    - this is the default
 "au BufEnter *.py set expandtab smarttab shiftwidth=4
 "au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.js} set shiftwidth=4 tabstop=8 smarttab expandtab
-"au BufEnter *.py  set shiftwidth=4 tabstop=8 smarttab expandtab
 "au BufEnter *.css set shiftwidth=8 tabstop=8 nosmarttab noexpandtab
-au BufEnter {*.c,*.cpp,*.m,*.css,*.jsi,*py} set expandtab smarttab shiftwidth=4
+au BufEnter {*.py,*.go} set shiftwidth=4 tabstop=8 smarttab expandtab
+au BufEnter {*.c,*.cpp,*.m,*.css,*.jsi} set noexpandtab smarttab shiftwidth=4 ts=4
 au BufEnter {*.htm,*.html} set noexpandtab nosmarttab ts=4 sw=4 indentexpr=
 au BufEnter *.cs set expandtab
 
