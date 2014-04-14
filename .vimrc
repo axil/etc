@@ -160,9 +160,9 @@ if $OS=='Windows_NT'
     source $VIM\_guicolors
     hi DiffAdd guifg=white
     hi DiffChange guifg=white
-    hi DiffText guifg=white
+"    hi DiffText guifg=white
     hi Folded guibg=black
-    hi PreProc guifg=lightblue 
+"    hi PreProc guifg=lightblue
     hi Underlined guifg=lightblue gui=underline 
 else
     syntax on
@@ -281,10 +281,10 @@ if $OS=='Windows_NT'
     map <C-Right> w
     map <C-Left> b
   "- set/remove debug point
-    map <F4> <Space><BS>"='import ipdb; ipdb.set_trace()000'<CR>[p
+    map <F4> "='import ipdb; ipdb.set_trace()000'<CR>[p
     map <S-F4> "='import ipdb; ipdb.set_trace()000'<CR>[P
-    imap <F4> <C-O>"='import ipdb; ipdb.set_trace()000'<CR>[p
-    imap <S-F4> <C-O>"='import ipdb; ipdb.set_trace()000'<CR>[P
+    imap <F4> <Space><BS><C-O>"='import ipdb; ipdb.set_trace()000'<CR>[p
+    imap <S-F4> <Space><BS><C-O>"='import ipdb; ipdb.set_trace()000'<CR>[P
     map <C-F4> "='import pdb; pdb.set_trace()000'<CR>[p
     imap <C-F4> <C-O>"='import pdb; pdb.set_trace()000'<CR>[p
     map <F3> "='import rpdb2; rpdb2.start_embedded_debugger("qqq")000'<CR>[p
@@ -374,7 +374,7 @@ if $OS=='Windows_NT'
     map ь m
     map б ,
     map ю .
-    map . /
+"    map . /
 else
     "-numxpad
     map! Oq 1
@@ -498,8 +498,8 @@ au BufEnter {*.htm,*.html} set noexpandtab nosmarttab ts=4 sw=4 indentexpr=
 au BufEnter *.cs set expandtab
 
   "-commenting/uncommenting
-au BufEnter {*.c,*.cpp,*.m,*.js,*.html} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<CR>
-au BufEnter {*.c,*.cpp,*.m,*.js,*.html} vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^//,,<Bar>let @/=@9<CR>
+au BufEnter {*.c,*.cpp,*.m,*.js,*.html,*.go} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<CR>
+au BufEnter {*.c,*.cpp,*.m,*.js,*.html,*.go} vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^//,,<Bar>let @/=@9<CR>
 au BufEnter .vimrc vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,",<Bar>let @/=@9<CR>
 au BufEnter .vimrc vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^",,<Bar>let @/=@9<CR>
 
