@@ -2,6 +2,7 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 TERM=xterm
+export LC_ALL=en_US.utf8
  
 setopt interactivecomments
 setopt globdots
@@ -43,6 +44,7 @@ alias pfm='git ls-files -m |xargs pyflakes'
 alias ack='ack --pager="less -r"'
 alias ll='ls -l'
 alias se='sudoedit'
+alias msq='./manage.py sqlevolve catalogue |grep ADD |grep -v _tmp'
 
 bindkey -e #because EDITOR contains vi
 bindkey '\e[H' beginning-of-line
