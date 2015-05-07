@@ -26,7 +26,7 @@
 [color]
 	branch = auto
 	diff = auto
-#[push]
-#	default = simple
+[push]
+	default = simple
 [rebase]
 	autosquash = true
