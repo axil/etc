@@ -2,6 +2,8 @@
 
 import os, sys, shutil
 
+BASE_DIR = os.path.realpath(os.path.dirname(__file__))
+
 def install(filename, install_dir):
     print 'installing %s into %s' % (filename, install_dir)
     try:
@@ -11,7 +13,7 @@ def install(filename, install_dir):
         print 'dir not created'
 
     try:
-        shutil.copy(filename, install_dir)
+        shutil.copy(os.path.join(BASE_DIR, filename), install_dir)
         print 'file copied'
     except shutil.Error:
         print 'file not copied'
