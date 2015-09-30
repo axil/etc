@@ -45,6 +45,7 @@ alias ack='ack --pager="less -r"'
 alias ll='ls -l'
 alias se='sudoedit'
 alias msq='./manage.py sqlevolve catalogue |grep ADD |grep -v _tmp'
+alias a='source env/bin/activate'
 
 bindkey -e #because EDITOR contains vi
 bindkey '\e[H' beginning-of-line
@@ -62,7 +63,7 @@ export EDITOR=vim
 #if [[ -z "$STY" ]]; then
 #    export PYTHONPATH=/usr/local/egg/lib/python2.5/site-packages/:$PYTHONPATH
 #    export PATH=~/bin:/usr/local/egg/bin:$PATH
-export WORKON_HOME=/var/envs
+export WORKON_HOME=~/envs
 [[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh 
 export PATH=~/bin:$PATH
 #fi
