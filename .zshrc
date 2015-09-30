@@ -63,7 +63,7 @@ export EDITOR=vim
 #if [[ -z "$STY" ]]; then
 #    export PYTHONPATH=/usr/local/egg/lib/python2.5/site-packages/:$PYTHONPATH
 #    export PATH=~/bin:/usr/local/egg/bin:$PATH
-export WORKON_HOME=~/envs
+export WORKON_HOME=~/.virtualenvs
 [[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh 
 export PATH=~/bin:$PATH
 #fi
