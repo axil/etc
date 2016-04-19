@@ -55,6 +55,7 @@ set diffopt+=vertical
 set ruler
 set scrolloff=3
 set rtp+=$GOROOT/misc/vim
+set encoding=utf-8
 filetype plugin indent on
     
 " diff
@@ -114,7 +115,6 @@ if $OS=='Windows_NT'
         set columns=126
     endif
     lan english                     " vim 7.0 feature
-    set encoding=utf-8
     set fileformat=unix
     set isfname-=:          "for gF
     set ffs=unix,dos
