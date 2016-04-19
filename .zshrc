@@ -46,6 +46,7 @@ alias ll='ls -l'
 alias se='sudoedit'
 alias msq='./manage.py sqlevolve catalogue |grep ADD |grep -v _tmp'
 alias a='source env/bin/activate'
+alias d='deactivate'
 
 bindkey -e #because EDITOR contains vi
 bindkey '\e[H' beginning-of-line
