@@ -5,7 +5,7 @@ import os, sys, shutil
 BASE_DIR = os.path.realpath(os.path.dirname(__file__))
 
 def install(filename, install_dir):
-    print 'installing %s into %s' % (filename, install_dir)
+    print '* installing %s into %s' % (filename, install_dir)
     try:
         os.makedirs(install_dir)
         print 'dir created'
@@ -36,6 +36,12 @@ def git_ff():
     install('git-ff', os.environ['HOME'] + '/bin/')
     install('git-fixup', os.environ['HOME'] + '/bin/')
 
+def run(cmd):
+    print '* running', cmd
+    os.system(BASE_DIR + '/' + cmd)
+
 if __name__ == '__main__':
 #    python_vim()
     git_ff()
+    run('get_ack.sh')
+    run('ln.zsh')
