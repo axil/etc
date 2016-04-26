@@ -188,8 +188,8 @@ endif
     nnoremap P p
 " File&window management:
   "-save file
-    map <F2> :w<CR>
-    imap <F2> <C-O><F2>
+    map [[B :w<CR>
+    imap [[B <C-O><F2>
   "-explorer
 "    map <F3> :Sexplore<CR>
 "    imap <F3> <C-O><F3>
@@ -392,34 +392,34 @@ else
     map! On .
 
   "-termcap codes, putty mode 2 ("SCO")
-    set t_kI=[L
-    set t_kD=
-    set t_kh=[H
-    set t_@7=[F
-    set t_kP=[I
-    set t_kN=[G
-    set t_k1=[M  
-    set t_k2=[N
-    set t_k3=[O
-    set t_k4=[P
-    set t_k5=[Q
-    set t_k6=[R
-    set t_k7=[S
-    set t_k8=[T
-    set t_k9=[U
-    set t_k;=[V
-    set t_F1=[W
-    set t_F2=[X
-    set t_kb=
-    set t_kB=[Z
+"    set t_kI=[L
+"    set t_kD=
+"    set t_kh=[H
+"    set t_@7=[F
+"    set t_kP=[I
+"    set t_kN=[G
+"    set t_k1=[M  
+"    set t_k2=[N
+"    set t_k3=[O
+"    set t_k4=[P
+"    set t_k5=[Q
+"    set t_k6=[R
+"    set t_k7=[S
+"    set t_k8=[T
+"    set t_k9=[20~
+"    set t_k;=[V
+"    set t_F1=[W
+"    set t_F2=[X
+"    set t_kb=
+"    set t_kB=[Z
   "-wordwise movement
-    map [D <S-Left>
-    map [C <S-Right>
+"    map [D <S-Left>
+"    map [C <S-Right>
   "-missing escape-sequences
-    map [A <C-Up>
-    imap [A <C-Up>
-    map [B <C-Down>
-    imap [B <C-Down>
+"    map [A <C-Up>
+"    imap [A <C-Up>
+"    map [B <C-Down>
+"    imap [B <C-Down>
   "-override write protection
     cmap w!! %!sudo tee > /dev/null %
 endif
@@ -544,8 +544,8 @@ else
 
     "-<F9>
     au BufEnter *.cc,*.cpp map <F9> :!g++ -lrt -o%< % && ./%<<CR>
-    au BufEnter *.py,*.pl map [U :!python %<CR>
-    au BufEnter *.py,*.pl imap [U <C-O>:!python %<CR>
+    au BufEnter *.py,*.pl map [20~ :!python %<CR>
+    au BufEnter *.py,*.pl imap [20~ <C-O>:!python %<CR>
     au BufEnter *.py,*.pl map [s :!sudo ./go.sh<CR>
     au BufEnter *.py,*.pl imap [s <C-O>:!sudo ./go.sh<CR>
 endif

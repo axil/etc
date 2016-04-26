@@ -9,7 +9,7 @@ setopt globdots
 unsetopt flowcontrol
  
 # If interactive
-if [ -n "$SSH_TTY" ]; then
+#if [ -n "$SSH_TTY" ]; then
   # Prompt
 #   PS1='\[\u@\h:\W\]% '
     PS1='%n@%m:%~%# '
@@ -19,7 +19,7 @@ if [ -n "$SSH_TTY" ]; then
     export VDPT='/var/django/phones-trunk'
     export VDPL='/var/django/phones-lev'
     export VDCT='/var/django/cheese-trunk'
-fi
+#fi
 
 autoload -U compinit zmv
 compinit
@@ -51,7 +51,7 @@ alias d='deactivate'
 bindkey -e #because EDITOR contains vi
 bindkey '\e[H' beginning-of-line
 bindkey '\e[F' end-of-line
-bindkey  delete-char
+#bindkey  delete-char
 bindkey 'OA' history-beginning-search-backward
 bindkey 'OB' history-beginning-search-forward
 bindkey '\eOD' backward-word
