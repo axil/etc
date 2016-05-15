@@ -40,8 +40,23 @@ def run(cmd):
     print '* running', cmd
     os.system(BASE_DIR + '/' + cmd)
 
+def get_abolish_the_python_way():
+    PLUGIN_DIR = os.path.expanduser('~/.vim/plugin')
+    if not os.path.exists(PLUGIN_DIR):
+        os.mkdir(PLUGIN_DIR)
+#    import urllib
+#    urllib.urlretrieve('https://raw.githubusercontent.com/tpope/vim-abolish/master/plugin/abolish.vim', os.path.join(PLUGIN_DIR))
+    import subprocess
+    subprocess.call(('wget -P %s https://raw.githubusercontent.com/tpope/vim-abolish/master/plugin/abolish.vim' % PLUGIN_DIR).split())
+
+def get_abolish():
+    os.system('mkdir -p ~/.vim/plugin')
+    os.system('wget -P ~/.vim/plugin https://raw.githubusercontent.com/tpope/vim-abolish/master/plugin/abolish.vim')
+
+
 if __name__ == '__main__':
 #    python_vim()
     git_ff()
     run('get_ack.sh')
     run('ln.zsh')
+    get_abolish()
