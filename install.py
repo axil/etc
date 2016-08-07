@@ -40,23 +40,34 @@ def run(cmd):
     print '* running', cmd
     os.system(BASE_DIR + '/' + cmd)
 
-def get_abolish_the_python_way():
-    PLUGIN_DIR = os.path.expanduser('~/.vim/plugin')
-    if not os.path.exists(PLUGIN_DIR):
-        os.mkdir(PLUGIN_DIR)
-#    import urllib
-#    urllib.urlretrieve('https://raw.githubusercontent.com/tpope/vim-abolish/master/plugin/abolish.vim', os.path.join(PLUGIN_DIR))
-    import subprocess
-    subprocess.call(('wget -P %s https://raw.githubusercontent.com/tpope/vim-abolish/master/plugin/abolish.vim' % PLUGIN_DIR).split())
+def fetch(url, path):
+    import urllib
+    path = os.path.expanduser(path)
+    if not os.path.exists(path):
+        os.mkdir(path)
+    filename = os.path.basename(url)
+#    print filename
+#    print os.path.join(path, filename)
+    urllib.urlretrieve(url, os.path.join(path, filename))
 
 def get_abolish():
+    import subprocess
+#    import urllib
+#    urllib.urlretrieve('https://raw.githubusercontent.com/tpope/vim-abolish/master/plugin/abolish.vim', os.path.join(PLUGIN_DIR))
+#    subprocess.call(('wget -P %s https://raw.githubusercontent.com/tpope/vim-abolish/master/plugin/abolish.vim' % PLUGIN_DIR).split())
+#    subprocess.call(('wget -P %s https://raw.githubusercontent.com/tpope/vim-abolish/master/doc/abolish.txt' % PLUGIN_DOC_DIR).split())
+    fetch('https://raw.githubusercontent.com/tpope/vim-abolish/master/plugin/abolish.vim', '~/.vim/plugin')
+    fetch('https://raw.githubusercontent.com/tpope/vim-abolish/master/doc/abolish.txt', '~/.vim/doc')
+
+def get_abolish_external():
     os.system('mkdir -p ~/.vim/plugin')
-    os.system('wget -P ~/.vim/plugin https://raw.githubusercontent.com/tpope/vim-abolish/master/plugin/abolish.vim')
+    os.system('wget -P ~/.vim/plugin -r -l 0 https://raw.githubusercontent.com/tpope/vim-abolish/master/plugin/abolish.vim')
+    os.system('curl -LO ~/.vim/doc -r -l 0 https://raw.githubusercontent.com/tpope/vim-abolish/master/doc/abolish.txt')
 
 
 if __name__ == '__main__':
 #    python_vim()
-    git_ff()
-    run('get_ack.sh')
-    run('ln.zsh')
+#    git_ff()
+#    run('get_ack.sh')
+#    run('ln.zsh')
     get_abolish()
