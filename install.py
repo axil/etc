@@ -19,8 +19,9 @@ def install(filename, install_dir):
         print 'file not copied'
 
 def python_vim():
-    home = os.environ.get('HOME', os.environ['HOMEDRIVE'] + os.environ['HOMEPATH'])
+    home = os.environ.get('HOME')
     if sys.platform == 'win32':
+	home = os.environ.get('HOME', os.environ['HOMEDRIVE'] + os.environ['HOMEPATH'])
         if home[-1] not in ['/', '\\']:
             home += '/'
     install('python.vim',
@@ -66,8 +67,8 @@ def get_abolish_external():
 
 
 if __name__ == '__main__':
-#    python_vim()
-#    git_ff()
-#    run('get_ack.sh')
-#    run('ln.zsh')
+    python_vim()
+    git_ff()
+    run('get_ack.sh')
+    run('ln.zsh')
     get_abolish()
