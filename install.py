@@ -65,10 +65,19 @@ def get_abolish_external():
     os.system('wget -P ~/.vim/plugin -r -l 0 https://raw.githubusercontent.com/tpope/vim-abolish/master/plugin/abolish.vim')
     os.system('curl -LO ~/.vim/doc -r -l 0 https://raw.githubusercontent.com/tpope/vim-abolish/master/doc/abolish.txt')
 
+def get_pyflakes():
+    os.system('git clone git@github.com:axil/pyflakes-vim.git ~/pyflakes-vim')
+    os.chdir(os.path.expanduser('~/pyflakes-vim'))
+    os.system('git submodule init')
+    os.system('git submodule update')
+    os.system('mv ~/pyflakes-vim/ftplugin ~/.vim')
+    os.system('rm -rf ~/pyflakes-vim')
+
 
 if __name__ == '__main__':
-    python_vim()
-    git_ff()
-    run('get_ack.sh')
-    run('ln.zsh')
-    get_abolish()
+#    python_vim()
+#    git_ff()
+#    run('get_ack.sh')
+#    run('ln.zsh')
+#    get_abolish()
+    get_pyflakes()
