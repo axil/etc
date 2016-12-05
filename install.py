@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-import os, sys, shutil
+import os, sys, shutil, stat
 
 BASE_DIR = os.path.realpath(os.path.dirname(__file__))
 
-def install(filename, install_dir):
+def install(filename, install_dir, make_executable=False):
     print '* installing %s into %s' % (filename, install_dir)
     try:
         os.makedirs(install_dir)
@@ -17,6 +17,13 @@ def install(filename, install_dir):
         print 'file copied'
     except shutil.Error:
         print 'file not copied'
+
+    try:
+        os.chmod(os.path.join(install_dir, filename), 0o766)
+        print 'file made executable'
+    except:
+        from traceback import format_exc
+        print 'couldn\'t make file executable: ' + format_exc()
 
 def python_vim():
     home = os.environ.get('HOME')
@@ -34,8 +41,9 @@ def python_vim():
 def git_ff():
     if sys.platform == 'win32':
         return
-    install('git-ff', os.environ['HOME'] + '/bin/')
-    install('git-fixup', os.environ['HOME'] + '/bin/')
+    install('git-ff', os.environ['HOME'] + '/bin/', True)
+    install('git-track', os.environ['HOME'] + '/bin/', True)
+#    install('git-fixup', os.environ['HOME'] + '/bin/')
 
 def run(cmd):
     print '* running', cmd
@@ -76,8 +84,8 @@ def get_pyflakes():
 
 if __name__ == '__main__':
 #    python_vim()
-#    git_ff()
+    git_ff()
 #    run('get_ack.sh')
 #    run('ln.zsh')
 #    get_abolish()
-    get_pyflakes()
+#    get_pyflakes()
