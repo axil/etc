@@ -57,6 +57,8 @@ set scrolloff=3
 set rtp+=$GOROOT/misc/vim
 set encoding=utf-8
 filetype plugin indent on
+set listchars+=nbsp:_
+let g:table_mode_corner_corner="+"
     
 " diff
 set diffexpr=MyDiff()
@@ -275,6 +277,11 @@ endif
     imap <C-J> <C-O>J
   "- insert formatted
     map [P ]p
+  "- repeat insert
+"    map <C-A> <C-R>.
+  "- nbsp
+    inoremap <C-Space> <C-K><Space><Space>
+    nmap <C-Space> i<C-Space><Esc>
 
 " _____________Mappings: symmetric differences_____________
 if $OS=='Windows_NT'
@@ -284,7 +291,8 @@ if $OS=='Windows_NT'
     map <F4> "='import ipdb; ipdb.set_trace()000'<CR>[p
     map <S-F4> "='import ipdb; ipdb.set_trace()000'<CR>[P
     imap <F4> <Space><BS><C-O>"='import ipdb; ipdb.set_trace()000'<CR>[p
-    imap <S-F4> <Space><BS><C-O>"='import ipdb; ipdb.set_trace()000'<CR>[P
+    imap <S-F4> <C-O>"='import ipdb; ipdb.set_trace()000'<CR>[P
+    "imap <S-F4> <Space><BS><C-O>"='import ipdb; ipdb.set_trace()000'<CR>[P
     map <C-F4> "='import pdb; pdb.set_trace()000'<CR>[p
     imap <C-F4> <C-O>"='import pdb; pdb.set_trace()000'<CR>[p
     map <F3> "='import rpdb2; rpdb2.start_embedded_debugger("qqq")000'<CR>[p
@@ -342,6 +350,7 @@ if $OS=='Windows_NT'
   "-Alt-= to create the tabs
     map ½ :tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>:tabnew<CR>:cd ../..<CR>1gt
 
+    iunmap <C-A>
     map й q
     map ц w
     map у e
@@ -493,9 +502,10 @@ autocmd BufReadPost *
 "au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.js} set shiftwidth=4 tabstop=8 smarttab expandtab
 "au BufEnter *.css set shiftwidth=8 tabstop=8 nosmarttab noexpandtab
 au BufEnter {*.py,*.go} set shiftwidth=4 tabstop=8 smarttab expandtab
-au BufEnter {*.c,*.cpp,*.m,*.css,*.jsi} set noexpandtab smarttab shiftwidth=4 ts=4
+au BufEnter {*.c,*.cpp,*.m,*.css,*.js,*py,*.sql,*.jl} set expandtab smarttab shiftwidth=4 tabstop=4
 au BufEnter {*.htm,*.html} set noexpandtab nosmarttab ts=4 sw=4 indentexpr=
 au BufEnter *.cs set expandtab
+au BufEnter {*.rst} set sw=4 expandtab nosmarttab
 
   "-commenting/uncommenting
 au BufEnter {*.c,*.cpp,*.m,*.js,*.html,*.go} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<CR>
@@ -503,6 +513,7 @@ au BufEnter {*.c,*.cpp,*.m,*.js,*.html,*.go} vmap <buffer><silent> , :<C-U>let @
 au BufEnter .vimrc vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,",<Bar>let @/=@9<CR>
 au BufEnter .vimrc vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^",,<Bar>let @/=@9<CR>
 
+au BufEnter *.jinja so $VIMRUNTIME\syntax\html.vim
 
 "___________Autocommands: symmetric differences__________________
 if $OS=='Windows_NT'
@@ -524,10 +535,12 @@ endif
 "___________Autocommands: asymmetric differences_________________
 if $OS=='Windows_NT'
     " -run
-    au BufEnter *.py map <F9> :!D:/Utilities/Development/Python/python.exe %:gs?\\?/? <CR>
+    au BufEnter *.py nnoremap <F9> :!C:/Windows/py.exe %:gs?\\?/? <CR>
+    au BufEnter *.jl nnoremap <F9> :!julia %:gs?\\?/? <CR>
     au BufEnter *.go map <F9> :!go run %:gs?\\?/? <CR>
     au BufEnter {*.vim,_vimrc} nnoremap <F9> :source %<CR>
-    au BufEnter {*.py,*.vim,_vimrc} imap <F9> <C-O><F9>
+    au BufEnter {*.js} nnoremap <F9> :!casperjs.exe %<CR>
+    au BufEnter {*.py,*.vim,_vimrc,*.js} inoremap <F9> <C-O><F9>
 
     " -switch header<>body
     au BufEnter *.cpp nnoremap <F6> :e %<.h<CR>
