@@ -205,10 +205,14 @@ endif
     map <F6> <C-W>w
     imap <F6> <C-O><C-W>w
   " -next & previous window
-    map <F7> :Next<CR>
-    map! <F7> <C-O>:Next<CR>
-    map <F8> :next<CR>
-    map! <F8> <C-O>:next<CR>
+"    map <F7> :Next<CR>
+"    map! <F7> <C-O>:Next<CR>
+"    map <F8> :next<CR>
+"    map! <F8> <C-O>:next<CR>
+    map <F8> :cnext<CR>
+    imap <F8> <C-O>:cnext<CR>
+    map <F7> :cNext<CR>
+    imap <F7> <C-O>:cNext<CR>
   " -change window in insert mode
     imap <C-W> <C-O><C-W>
   " -edit alternative file
@@ -502,14 +506,14 @@ autocmd BufReadPost *
 "au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.js} set shiftwidth=4 tabstop=8 smarttab expandtab
 "au BufEnter *.css set shiftwidth=8 tabstop=8 nosmarttab noexpandtab
 au BufEnter {*.py,*.go} set shiftwidth=4 tabstop=8 smarttab expandtab
-au BufEnter {*.c,*.cpp,*.m,*.css,*.js,*py,*.sql,*.jl} set expandtab smarttab shiftwidth=4 tabstop=4
+au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.css,*.js,*py,*.sql,*.jl} set expandtab smarttab shiftwidth=4 tabstop=4
 au BufEnter {*.htm,*.html} set noexpandtab nosmarttab ts=4 sw=4 indentexpr=
 au BufEnter *.cs set expandtab
 au BufEnter {*.rst} set sw=4 expandtab nosmarttab
 
   "-commenting/uncommenting
-au BufEnter {*.c,*.cpp,*.m,*.js,*.html,*.go} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<CR>
-au BufEnter {*.c,*.cpp,*.m,*.js,*.html,*.go} vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^//,,<Bar>let @/=@9<CR>
+au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.js,*.html,*.go} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<CR>
+au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.js,*.html,*.go} vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^//,,<Bar>let @/=@9<CR>
 au BufEnter .vimrc vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,",<Bar>let @/=@9<CR>
 au BufEnter .vimrc vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^",,<Bar>let @/=@9<CR>
 
@@ -521,9 +525,10 @@ if $OS=='Windows_NT'
     au BufEnter *.html vmap ô "zdi{% trans "" %}<Esc>4<Left>"zp
     au BufEnter *.html vmap â "zdi{% blocktrans %}{% endblocktrans %}<Esc>2b3hp
     "-pyflakes
-    au BufEnter *.py map <S-F9> :!start D:/Utilities/Development/Python/python.exe %:gs?\\?/? <CR>
+    au BufEnter *.py map <S-F9> :!start py %:gs?\\?/? <CR>
     au BufEnter *.py map <C-F9> :!start D:/Utilities/Development/Python26/egg/Scripts/pyflakes.bat %:gs?\\?/?<CR>
 else
+    au BufEnter *.jl map <S-F9> :!start julia.exe %:gs?\\?/? <CR>
     "-trans
     au BufEnter *.html vmap t "zdi{% trans "" %}<Esc>3<Left>"zp
     au BufEnter *.html vmap b "zdi{% blocktrans %}{% endblocktrans %}<Esc>2b3hp
