@@ -5,30 +5,30 @@ import os, sys, shutil, stat
 BASE_DIR = os.path.realpath(os.path.dirname(__file__))
 
 def install(filename, install_dir, make_executable=False):
-    print '* installing %s into %s' % (filename, install_dir)
+    print('* installing %s into %s' % (filename, install_dir))
     try:
         os.makedirs(install_dir)
-        print 'dir created'
+        print('dir created')
     except OSError:
-        print 'dir not created'
+        print('dir not created')
 
     try:
         shutil.copy(os.path.join(BASE_DIR, filename), install_dir)
-        print 'file copied'
+        print('file copied')
     except shutil.Error:
-        print 'file not copied'
+        print('file not copied')
 
     try:
         os.chmod(os.path.join(install_dir, filename), 0o766)
-        print 'file made executable'
+        print('file made executable')
     except:
         from traceback import format_exc
-        print 'couldn\'t make file executable: ' + format_exc()
+        print('couldn\'t make file executable: ' + format_exc())
 
 def python_vim():
     home = os.environ.get('HOME')
     if sys.platform == 'win32':
-	home = os.environ.get('HOME', os.environ['HOMEDRIVE'] + os.environ['HOMEPATH'])
+        home = os.environ.get('HOME', os.environ['HOMEDRIVE'] + os.environ['HOMEPATH'])
         if home[-1] not in ['/', '\\']:
             home += '/'
     install('python.vim',
@@ -46,18 +46,18 @@ def git_ff():
 #    install('git-fixup', os.environ['HOME'] + '/bin/')
 
 def run(cmd):
-    print '* running', cmd
+    print('* running', cmd)
     os.system(BASE_DIR + '/' + cmd)
 
 def fetch(url, path):
-    import urllib
+    import urllib.request, urllib.parse, urllib.error
     path = os.path.expanduser(path)
     if not os.path.exists(path):
         os.mkdir(path)
     filename = os.path.basename(url)
 #    print filename
 #    print os.path.join(path, filename)
-    urllib.urlretrieve(url, os.path.join(path, filename))
+    urllib.request.urlretrieve(url, os.path.join(path, filename))
 
 def get_abolish():
     import subprocess
@@ -83,9 +83,9 @@ def get_pyflakes():
 
 
 if __name__ == '__main__':
-#    python_vim()
+    python_vim()
     git_ff()
-#    run('get_ack.sh')
-#    run('ln.zsh')
-#    get_abolish()
-#    get_pyflakes()
+    run('get_ack.sh')
+    run('ln.zsh')
+    get_abolish()
+    get_pyflakes()
