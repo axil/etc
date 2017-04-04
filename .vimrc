@@ -160,9 +160,15 @@ if $OS=='Windows_NT'
     hi MoreMsg gui=NONE guifg=green
 "    set guifont=courier_new:h12:cRUSSIAN
     source $VIM\_guicolors
-    hi DiffAdd guifg=white
-    hi DiffChange guifg=white
-"    hi DiffText guifg=white
+"    hi DiffAdd guifg=white
+"    hi DiffChange guifg=white 
+"    hi DiffText guifg=white guibg=DarkRed
+"    hi DiffChange guibg=#303030
+highlight DiffAdd    guifg=lightgray guibg=#171717
+highlight DiffDelete guifg=#707070 guibg=#171717
+highlight DiffChange guifg=lightgray guibg=#171717
+highlight DiffText   guifg=lightgray guibg=#88003E
+
     hi Folded guibg=black
 "    hi PreProc guifg=lightblue
     hi Underlined guifg=lightblue gui=underline 
@@ -505,9 +511,10 @@ autocmd BufReadPost *
 "au BufEnter *.py set expandtab smarttab shiftwidth=4
 "au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.js} set shiftwidth=4 tabstop=8 smarttab expandtab
 "au BufEnter *.css set shiftwidth=8 tabstop=8 nosmarttab noexpandtab
-au BufEnter {*.py,*.go} set shiftwidth=4 tabstop=8 smarttab expandtab
+au BufEnter {*.py,*.go,*.hs} set shiftwidth=4 tabstop=8 smarttab expandtab
 au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.css,*.js,*py,*.sql,*.jl} set expandtab smarttab shiftwidth=4 tabstop=4
-au BufEnter {*.htm,*.html} set noexpandtab nosmarttab ts=4 sw=4 indentexpr=
+au BufEnter {*.htm,*.html,*.jinja} set noexpandtab nosmarttab ts=4 sw=4 indentexpr= 
+au BufEnter {*.jinja} set syntax=htmldjango
 au BufEnter *.cs set expandtab
 au BufEnter {*.rst} set sw=4 expandtab nosmarttab
 
@@ -568,3 +575,5 @@ else
     au BufEnter *.py,*.pl imap [s <C-O>:!sudo ./go.sh<CR>
 endif
 augroup end
+
+hi PreProc guifg=lightblue
