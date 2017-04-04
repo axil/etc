@@ -33,7 +33,7 @@ set iskeyword=a-z,A-Z,48-57,_   "for gd
 set ww=<,>,[,]			"when cursor is at the end-of-line
 set nohlsearch
   "-horizontal format
-set formatoptions=tcq		"only for new files, see "au" section below
+set formatoptions=cqt		"only for new files, see "au" section below        cloqr
 set textwidth=0
   "-tabs
 "set shiftwidth=4               "doing this globally makes indentexpr crazy for config files
@@ -506,18 +506,24 @@ autocmd BufReadPost *
 "au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.js} set shiftwidth=4 tabstop=8 smarttab expandtab
 "au BufEnter *.css set shiftwidth=8 tabstop=8 nosmarttab noexpandtab
 au BufEnter {*.py,*.go} set shiftwidth=4 tabstop=8 smarttab expandtab
+au BufEnter {*.hs} set shiftwidth=4 tabstop=8 smarttab expandtab
 au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.css,*.js,*py,*.sql,*.jl} set expandtab smarttab shiftwidth=4 tabstop=4
-au BufEnter {*.htm,*.html} set noexpandtab nosmarttab ts=4 sw=4 indentexpr=
+au BufEnter {*.htm,*.html,*.jinja} set noexpandtab nosmarttab ts=4 sw=4 indentexpr=
+au BufEnter *.jinja set syntax=htmldjango
 au BufEnter *.cs set expandtab
 au BufEnter {*.rst} set sw=4 expandtab nosmarttab
 
   "-commenting/uncommenting
 au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.js,*.html,*.go} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<CR>
 au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.js,*.html,*.go} vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^//,,<Bar>let @/=@9<CR>
+au BufEnter {*.hs} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,--,<Bar>let @/=@9<CR>
+au BufEnter {*.hs} vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^--,,<Bar>let @/=@9<CR>
 au BufEnter .vimrc vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,",<Bar>let @/=@9<CR>
 au BufEnter .vimrc vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^",,<Bar>let @/=@9<CR>
 
 au BufEnter *.jinja so $VIMRUNTIME\syntax\html.vim
+au BufEnter *.h,*.cc,*.pl,*.jinja set formatoptions-=r
+au BufEnter *.jinja hi PreProc guifg=lightblue
 
 "___________Autocommands: symmetric differences__________________
 if $OS=='Windows_NT'
@@ -554,7 +560,6 @@ if $OS=='Windows_NT'
     au BufEnter *.asmx so D:\Utilities\Editors\Vim\vim60\syntax\cs.vim
 else
     au BufEnter *.icc so $VIM/vim62/syntax/cpp.vim
-    au BufEnter *.h,*.cc,*.pl set formatoptions-=r
     au BufWinEnter normal '"
     
     au BufEnter *.cc,*.cpp map [o :!./%<<CR>
