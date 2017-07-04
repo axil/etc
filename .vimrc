@@ -222,7 +222,12 @@ endif
   " -change window in insert mode
     imap <C-W> <C-O><C-W>
   " -edit alternative file
-    map <F12> :e #<CR>
+"    map <F12> :e #<CR>
+  " -paste
+"    map <F12> :set paste<CR>i
+"    "imap <F12> <C-O>:set nopaste<CR><C-[>
+"    imap <F12> <C-[>
+    set pastetoggle=<F12>
   " -resize
     map <C-W>, <C-W>>
     map <C-W>. <C-W><
@@ -268,7 +273,7 @@ endif
     map <S-Tab> <<
     vmap <S-Tab> <
   "-C-Space
-    imap <F12> <C-P>
+"  imap <F12> <C-P>
     
 " Misc:
   "-exit
@@ -526,7 +531,7 @@ au BufEnter {*.hs} vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^--,,<Bar>
 au BufEnter .vimrc vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,",<Bar>let @/=@9<CR>
 au BufEnter .vimrc vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^",,<Bar>let @/=@9<CR>
 
-au BufEnter *.jinja so $VIMRUNTIME\syntax\html.vim
+au BufEnter *.jinja so $VIMRUNTIME/syntax/html.vim
 au BufEnter *.h,*.cc,*.pl,*.jinja set formatoptions-=r
 au BufEnter *.jinja hi PreProc guifg=lightblue
 
