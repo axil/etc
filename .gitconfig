@@ -14,6 +14,8 @@
 	track = branch -u
 #	fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
 #	squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+	preview = diff --cached
+	cio = commit -c ORIG_HEAD
 [core]
 	autocrlf = false
 	excludesfile = ~/.gitignore
@@ -32,3 +34,4 @@
 	default = simple
 [rebase]
 	autosquash = true
+

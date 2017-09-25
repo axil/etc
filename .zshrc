@@ -1,8 +1,15 @@
+export VDC='/var/sites/cityguides'
+export VDCL='/var/sites/cityguides-lev'
+export VDCE='/var/sites/cityguides-estrella'
+export VDCP='/var/sites/cityguides-ppn'
+export HPC='/home/piotr/cityguides'
+
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 TERM=xterm
-export LC_ALL=en_US.utf8
+export LC_ALL=en_GB.utf8
  
 setopt interactivecomments
 setopt globdots
