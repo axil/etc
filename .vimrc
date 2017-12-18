@@ -33,7 +33,7 @@ set iskeyword=a-z,A-Z,48-57,_   "for gd
 set ww=<,>,[,]			"when cursor is at the end-of-line
 set nohlsearch
   "-horizontal format
-set formatoptions=cqt		"only for new files, see "au" section below        cloqr
+set formatoptions=cqtroq		"only for new files, see "au" section below        cloqr
 set textwidth=0
   "-tabs
 "set shiftwidth=4               "doing this globally makes indentexpr crazy for config files
@@ -59,6 +59,8 @@ set encoding=utf-8
 filetype plugin indent on
 set listchars+=nbsp:_
 let g:table_mode_corner_corner="+"
+set cc=80
+hi ColorColumn ctermbg=darkgrey guibg=#171717
     
 " diff
 set diffexpr=MyDiff()
@@ -310,7 +312,7 @@ if $OS=='Windows_NT'
     "imap <S-F4> <Space><BS><C-O>"='import ipdb; ipdb.set_trace()000'<CR>[P
     map <C-F4> "='import pdb; pdb.set_trace()000'<CR>[p
     imap <C-F4> <C-O>"='import pdb; pdb.set_trace()000'<CR>[p
-    map <F3> "='import rpdb2; rpdb2.start_embedded_debugger("qqq")000'<CR>[p
+    map <F3> "='from IPython.core.debugger import Tracer;  Tracer()()000'<CR>[p
     imap <F3> <C-O><F3>
 else
     map [C w
