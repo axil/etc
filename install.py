@@ -40,7 +40,7 @@ def python_vim():
 
 def git_ff():
     if sys.platform == 'win32':
-        return
+        return   # "C:\Program Files\Git\mingw64\libexec\git-core\" 
     install('git-ff', os.environ['HOME'] + '/bin/', True)
     install('git-track', os.environ['HOME'] + '/bin/', True)
 #    install('git-fixup', os.environ['HOME'] + '/bin/')
