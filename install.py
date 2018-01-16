@@ -74,7 +74,7 @@ def get_abolish_external():
     os.system('curl -LO ~/.vim/doc -r -l 0 https://raw.githubusercontent.com/tpope/vim-abolish/master/doc/abolish.txt')
 
 def get_pyflakes():
-    os.system('git clone git@github.com:axil/pyflakes-vim.git ~/pyflakes-vim')
+    os.system('git clone https://github.com/axil/pyflakes-vim.git ~/pyflakes-vim')
     os.chdir(os.path.expanduser('~/pyflakes-vim'))
     os.system('git submodule init')
     os.system('git submodule update')
