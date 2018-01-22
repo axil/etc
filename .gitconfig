@@ -4,10 +4,11 @@
 [alias]
 	ci = commit
 	co = checkout
-	mt = mergetool
 	st = status
 	br = branch
 	sb = show-branch
+
+	mt = mergetool
 	ls = ls-files -r --name-only
 	ll = ls-files -r
 	others = ls-files --exclude-standard -o
