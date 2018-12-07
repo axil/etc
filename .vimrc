@@ -299,7 +299,8 @@ endif
   "- nbsp
     inoremap <C-Space> <C-K><Space><Space>
     nmap <C-Space> i<C-Space><Esc>
-
+  "- unmap enter
+    autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 " _____________Mappings: symmetric differences_____________
 if $OS=='Windows_NT'
     map <C-Right> w
@@ -522,6 +523,7 @@ au BufEnter {*.py,*.go,*.hs} set shiftwidth=4 tabstop=8 smarttab expandtab
 au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.css,*.js,*py,*.sql,*.jl} set expandtab smarttab shiftwidth=4 tabstop=4
 au BufEnter {*.htm,*.html,*.jinja} set noexpandtab nosmarttab ts=4 sw=4 indentexpr= 
 au BufEnter *.jinja set syntax=htmldjango
+au BufEnter *.log set syntax=log
 au BufEnter *.cs set expandtab
 au BufEnter {*.rst} set sw=4 expandtab nosmarttab
 
