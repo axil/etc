@@ -78,13 +78,22 @@ def get_abolish_external():
     os.system('wget -P ~/.vim/plugin -r -l 0 https://raw.githubusercontent.com/tpope/vim-abolish/master/plugin/abolish.vim')
     os.system('curl -LO ~/.vim/doc -r -l 0 https://raw.githubusercontent.com/tpope/vim-abolish/master/doc/abolish.txt')
 
+def e(path):
+    return os.path.expanduser(path)
+
 def get_pyflakes():
-    d = os.path.expanduser('~/pyflakes-vim')
+    d = e('~/pyflakes-vim')
     os.system('git clone https://github.com/axil/pyflakes-vim.git ' + d)
     os.chdir(d)
     os.system('git submodule init')
     os.system('git submodule update')
-    os.system('mv ~/pyflakes-vim/ftplugin ~/.vim')
+    if sys.platform == 'win32':
+        if not os.path.exists(e('~/vimfiles/ftplugin/python')):
+            os.makedirs(e('~/vimfiles/ftplugin/python'))
+        os.system('cp -r ~/pyflakes-vim/ftplugin/python/* ~/vimfiles/ftplugin/python')
+        os.chdir(e('~'))
+    else:
+        os.system('mv ~/pyflakes-vim/ftplugin ~/.vim')
     os.system('rm -rf ~/pyflakes-vim')
 
 def install_vim_files():
@@ -98,12 +107,12 @@ def install_dotfiles():
 
 if __name__ == '__main__':
 #    python_vim()
-    git_ff()
-    if sys.platform == 'win32':
-        install_vim_files()
-        install_dotfiles()
-    else:
-        run('get_ack.sh')
-        run('ln.zsh')
-    get_abolish()
+#    git_ff()
+#    if sys.platform == 'win32':
+#        install_vim_files()
+#        install_dotfiles()
+#    else:
+#        run('get_ack.sh')
+#        run('ln.zsh')
+#    get_abolish()
     get_pyflakes()
