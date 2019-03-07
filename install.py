@@ -18,17 +18,21 @@ def install(filename, install_dir, make_executable=False):
     except shutil.Error:
         print('file not copied')
 
-    try:
-        os.chmod(os.path.join(install_dir, filename), 0o766)
-        print('file made executable')
-    except:
-        from traceback import format_exc
-        print('couldn\'t make file executable: ' + format_exc())
+    if make_executable:
+        try:
+            os.chmod(os.path.join(install_dir, filename), 0o766)
+            print('file made executable')
+        except:
+            from traceback import format_exc
+            print('couldn\'t make file executable: ' + format_exc())
+
+def get_home():
+    return os.environ.get('HOME', os.environ['HOMEDRIVE'] + os.environ['HOMEPATH'])
 
 def python_vim():
     home = os.environ.get('HOME')
     if sys.platform == 'win32':
-        home = os.environ.get('HOME', os.environ['HOMEDRIVE'] + os.environ['HOMEPATH'])
+        home = get_home()
         if home[-1] not in ['/', '\\']:
             home += '/'
     install('python.vim',
@@ -40,9 +44,10 @@ def python_vim():
 
 def git_ff():
     if sys.platform == 'win32':
-        return   # "C:\Program Files\Git\mingw64\libexec\git-core\" 
-    install('git-ff', os.environ['HOME'] + '/bin/', True)
-    install('git-track', os.environ['HOME'] + '/bin/', True)
+        install('git-ff', r"C:\Program Files\Git\mingw64\libexec\git-core")
+    else:
+        install('git-ff', os.environ['HOME'] + '/bin/', True)
+        install('git-track', os.environ['HOME'] + '/bin/', True)
 #    install('git-fixup', os.environ['HOME'] + '/bin/')
 
 def run(cmd):
@@ -53,7 +58,7 @@ def fetch(url, path):
     import urllib.request, urllib.parse, urllib.error
     path = os.path.expanduser(path)
     if not os.path.exists(path):
-        os.mkdir(path)
+        os.makedirs(path)
     filename = os.path.basename(url)
 #    print filename
 #    print os.path.join(path, filename)
@@ -74,18 +79,31 @@ def get_abolish_external():
     os.system('curl -LO ~/.vim/doc -r -l 0 https://raw.githubusercontent.com/tpope/vim-abolish/master/doc/abolish.txt')
 
 def get_pyflakes():
-    os.system('git clone https://github.com/axil/pyflakes-vim.git ~/pyflakes-vim')
-    os.chdir(os.path.expanduser('~/pyflakes-vim'))
+    d = os.path.expanduser('~/pyflakes-vim')
+    os.system('git clone https://github.com/axil/pyflakes-vim.git ' + d)
+    os.chdir(d)
     os.system('git submodule init')
     os.system('git submodule update')
     os.system('mv ~/pyflakes-vim/ftplugin ~/.vim')
     os.system('rm -rf ~/pyflakes-vim')
 
+def install_vim_files():
+    install('vi.bat', r'c:\windows\system32')
+    install('_guicolors', r'C:\Utilities\Editors\Vim')
+
+def install_dotfiles():
+    home = get_home()
+    for f in '.vimrc .gitconfig .gitignore'.split(): 
+        install(f, home)
 
 if __name__ == '__main__':
-    python_vim()
+#    python_vim()
     git_ff()
-    run('get_ack.sh')
-    run('ln.zsh')
+    if sys.platform == 'win32':
+        install_vim_files()
+        install_dotfiles()
+    else:
+        run('get_ack.sh')
+        run('ln.zsh')
     get_abolish()
     get_pyflakes()
