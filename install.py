@@ -105,6 +105,10 @@ def install_dotfiles():
     for f in '.vimrc .gitconfig .gitignore'.split(): 
         install(f, home)
 
+def install_log_vim_syntax():
+    install('log.vim', '~/.vim/syntax/')
+
+
 if __name__ == '__main__':
 #    python_vim()
 #    git_ff()
@@ -115,4 +119,5 @@ if __name__ == '__main__':
 #        run('get_ack.sh')
 #        run('ln.zsh')
 #    get_abolish()
-    get_pyflakes()
+#    get_pyflakes()
+    install_log_vim_syntax()

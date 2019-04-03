@@ -58,7 +58,7 @@ alias d='deactivate'
 bindkey -e #because EDITOR contains vi
 bindkey '\e[H' beginning-of-line
 bindkey '\e[F' end-of-line
-bindkey  delete-char
+bindkey  backward-delete-char
 bindkey 'OA' history-beginning-search-backward
 bindkey 'OB' history-beginning-search-forward
 #bindkey '\eOD' backward-word

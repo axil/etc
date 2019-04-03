@@ -11,6 +11,7 @@ bindkey "\0336" select 6
 bindkey "\0337" select 7
 bindkey "\0338" select 8
 bindkey "\0339" select 9
+bindkey -k k1 select 1
 escape "^_-"
 screen -h 100 5
 screen 4
