@@ -5,6 +5,7 @@ import os, sys, shutil, stat
 BASE_DIR = os.path.realpath(os.path.dirname(__file__))
 
 def install(filename, install_dir, make_executable=False):
+    install_dir = e(install_dir)
     print('* installing %s into %s' % (filename, install_dir))
     try:
         os.makedirs(install_dir)
