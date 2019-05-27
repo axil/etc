@@ -9,6 +9,7 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 TERM=xterm
+#export PIP_USER=1
 export LC_ALL=en_GB.utf8
  
 setopt interactivecomments
@@ -73,7 +74,7 @@ export EDITOR=vim
 #    export PATH=~/bin:/usr/local/egg/bin:$PATH
 export WORKON_HOME=~/.virtualenvs
 [[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh 
-export PATH=~/bin:$PATH
+export PATH=~/bin:~/.local/bin/:$PATH
 #fi
 export DJANGO_SETTINGS_MODULE='settings'
 export LESS=FRSXi
