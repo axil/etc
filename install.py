@@ -111,14 +111,14 @@ def install_log_vim_syntax():
 
 
 if __name__ == '__main__':
-#    python_vim()
-#    git_ff()
-#    if sys.platform == 'win32':
-#        install_vim_files()
-#        install_dotfiles()
-#    else:
-#        run('get_ack.sh')
-#        run('ln.zsh')
-#    get_abolish()
-#    get_pyflakes()
+    python_vim()
+    git_ff()
+    if sys.platform == 'win32':
+        install_vim_files()
+        install_dotfiles()
+    else:
+        run('get_ack.sh')
+        run('ln.zsh')
+    get_abolish()
+    get_pyflakes()
     install_log_vim_syntax()
