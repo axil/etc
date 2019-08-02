@@ -1,5 +1,4 @@
 *.pyc
-*.swp
-*.swo
+*.sw?
 .ipynb_checkpoints
 *~
