@@ -35,4 +35,5 @@
 	default = simple
 [rebase]
 	autosquash = true
-
+[diff]
+	mnemonicprefix = true

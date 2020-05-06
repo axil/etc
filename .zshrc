@@ -27,6 +27,7 @@ if [ -n "$SSH_TTY" ]; then
     export VDPT='/var/django/phones-trunk'
     export VDPL='/var/django/phones-lev'
     export VDCT='/var/django/cheese-trunk'
+    export VSD='/var/sites/domains'
 fi
 
 autoload -U compinit zmv
@@ -55,6 +56,7 @@ alias se='sudoedit'
 alias msq='./manage.py sqlevolve catalogue |grep ADD |grep -v _tmp'
 alias a='source env/bin/activate'
 alias d='deactivate'
+alias pack='ack --type="python"'
 
 bindkey -e #because EDITOR contains vi
 bindkey '\e[H' beginning-of-line
@@ -62,8 +64,8 @@ bindkey '\e[F' end-of-line
 bindkey  backward-delete-char
 bindkey 'OA' history-beginning-search-backward
 bindkey 'OB' history-beginning-search-forward
-#bindkey '\eOD' backward-word
-#bindkey '\eOC' forward-word
+bindkey '[D' backward-word  #[D
+bindkey '[C' forward-word   #[C
  
 umask 002
 
