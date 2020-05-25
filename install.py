@@ -122,3 +122,4 @@ if __name__ == '__main__':
     get_abolish()
     get_pyflakes()
     install_log_vim_syntax()
+    install('patch_activate.sh', os.environ['HOME'] + '/bin/', True)
