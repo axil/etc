@@ -520,16 +520,17 @@ autocmd BufReadPost *
 "au BufEnter {*.c,*.cpp,*.m,*.html,*.htm,*.css,*.js} set shiftwidth=4 tabstop=8 smarttab expandtab
 "au BufEnter *.css set shiftwidth=8 tabstop=8 nosmarttab noexpandtab
 au BufEnter {*.py,*.go,*.hs} set shiftwidth=4 tabstop=8 smarttab expandtab
-au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.css,*.js,*py,*.sql,*.jl} set expandtab smarttab shiftwidth=4 tabstop=4
-au BufEnter {*.htm,*.html,*.jinja} set noexpandtab nosmarttab ts=4 sw=4 indentexpr= 
+au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.css,*py,*.sql,*.jl} set expandtab smarttab shiftwidth=4 tabstop=4
+au BufEnter {*.htm,*.html,*.jinja,*.svelte,*.js} set expandtab nosmarttab ts=2 sw=2 indentexpr= 
 au BufEnter *.jinja set syntax=htmldjango
+au BufEnter *.svelte set syntax=html
 au BufEnter *.log set syntax=log
 au BufEnter *.cs set expandtab
 au BufEnter {*.rst} set sw=4 expandtab nosmarttab
 
   "-commenting/uncommenting
-au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.js,*.html,*.go} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<CR>
-au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.js,*.html,*.go} vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^//,,<Bar>let @/=@9<CR>
+au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.js,*.html,*.go,*.svelte} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,//,<Bar>let @/=@9<CR>
+au BufEnter {*.c,*.cpp,*.h,*.hpp,*.m,*.js,*.html,*.go,*.svelte} vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^//,,<Bar>let @/=@9<CR>
 au BufEnter {*.hs} vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,--,<Bar>let @/=@9<CR>
 au BufEnter {*.hs} vmap <buffer><silent> , :<C-U>let @9=@/<Bar>'<,'>s,^--,,<Bar>let @/=@9<CR>
 au BufEnter .vimrc vmap <buffer><silent> . :<C-U>let @9=@/<Bar>'<,'>s,^,",<Bar>let @/=@9<CR>
@@ -560,7 +561,9 @@ endif
 "___________Autocommands: asymmetric differences_________________
 if $OS=='Windows_NT'
     " -run
-    au BufEnter *.py nnoremap <F9> :!C:/Windows/py.exe %:gs?\\?/? <CR>
+    "au BufEnter *.py nnoremap <F9> :!env\\scripts\\python %:gs?\\?/? <CR>
+    "au BufEnter *.py nnoremap <F9> :!C:/Windows/py.exe %:gs?\\?/? <CR>
+    au BufEnter *.py nnoremap <F9> :!python %:gs?\\?/? <CR>
     au BufEnter *.jl nnoremap <F9> :!julia %:gs?\\?/? <CR>
     au BufEnter *.go map <F9> :!go run %:gs?\\?/? <CR>
     au BufEnter {*.vim,_vimrc} nnoremap <F9> :source %<CR>
