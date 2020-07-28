@@ -10,6 +10,13 @@ version 6.0
   " Autocommands: common/symmetric/asymmetric
 
 
+"https://github.com/junegunn/vim-plug
+"call plug#begin('C:\Users\Lev\vimfiles\plugged')
+"Plug 'yuezk/vim-js'
+"Plug 'maxmellon/vim-jsx-pretty'
+"call plug#end()
+
+
 "_____________________Settings______________________
   "-general
 set nocompatible		"use vim improvements
