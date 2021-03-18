@@ -3,10 +3,9 @@ import json
 
 for filename in sys.argv[1:]:
     assert filename.endswith('.ipynb')
-    z = json.load(open(filename, encoding='utf8'))
-    for c in z['cells']:
-        c['outputs'] = []
-        c['execution_count'] = None
-    fout_name = filename.replace('.ipynb', '-clean.ipynb')
-    json.dump(z, open(fout_name, 'w', encoding='utf8'), indent=4, ensure_ascii=False)
+    fout_name = filename[:-6] + '.py'
+    with open(fout_name, 'w', encoding='utf8') as fout:
+        data = json.load(open(filename, encoding='utf8'))
+        for c in data['cells']:
+            fout.write(''.join(c['source']) + '\n\n')
 print('ok')

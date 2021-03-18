@@ -1,1 +1,1 @@
-C:\Utilities\Editors\Vim\vim81\gvim.exe %*
+C:\Utilities\Editors\Vim\gvim.exe %*
