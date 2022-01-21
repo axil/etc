@@ -8,5 +8,5 @@ for filename in sys.argv[1:]:
         c['outputs'] = []
         c['execution_count'] = None
     fout_name = filename.replace('.ipynb', '-clean.ipynb')
-    json.dump(z, open(fout_name, 'w', encoding='utf8'), indent=4, ensure_ascii=False)
+    json.dump(z, open(fout_name, 'w', encoding='utf8'), indent=1, ensure_ascii=False)
 print('ok')
