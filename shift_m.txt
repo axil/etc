@@ -1,0 +1,16 @@
+    function my_pad(z, first){
+        if(!first && (z.search(/^\s*def/) == 0))
+            z = z.replace(/\s*def/, '\ndef');
+        return z
+    }
+
+
+        for (i=0; i < indices.length; i++) {
+            contents.push(my_pad(this.get_cell(indices[i]).get_text(), 
+              !into_last && indices[i]==0));
+        }
+        if (into_last) {
+            contents.push(my_pad(target.get_text(),0));
+        } else {
+            contents.unshift(my_pad(target.get_text(),1));
+        }
