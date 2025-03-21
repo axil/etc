@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os, sys, shutil, stat
+from pathlib import Path
 
 BASE_DIR = os.path.realpath(os.path.dirname(__file__))
 
@@ -31,24 +32,15 @@ def get_home():
     return os.environ.get('HOME', os.environ['HOMEDRIVE'] + os.environ['HOMEPATH'])
 
 def python_vim():
-    home = os.environ.get('HOME')
-    if sys.platform == 'win32':
-        home = get_home()
-        if home[-1] not in ['/', '\\']:
-            home += '/'
-    install('python.vim',
-        '%s%s/after/ftplugin' % (
-            home,
-            'vimfiles' if sys.platform == 'win32' else '/.vim'
-    ))
-
+    vimdir = 'vimfiles' if sys.platform == 'win32' else '.vim'
+    install('python.vim', Path.home() / vimdir / 'after' / 'ftplugin')
 
 def git_ff():
     if sys.platform == 'win32':
         install('git-ff', r"C:\Program Files\Git\mingw64\libexec\git-core")
     else:
-        install('git-ff', os.environ['HOME'] + '/bin/', True)
-        install('git-track', os.environ['HOME'] + '/bin/', True)
+        install('git-ff', Path.home() / 'bin', True)
+        install('git-track', Path.home() / 'bin', True)
 #    install('git-fixup', os.environ['HOME'] + '/bin/')
 
 def run(cmd):
@@ -122,4 +114,4 @@ if __name__ == '__main__':
     get_abolish()
     get_pyflakes()
     install_log_vim_syntax()
-    install('patch_activate.sh', os.environ['HOME'] + '/bin/', True)
+    install('patch_activate.sh', Path.home() / 'bin', True)
